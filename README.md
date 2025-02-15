@@ -24,26 +24,6 @@ The project follows a three-layered architecture:
    - Includes entity classes and repositories to manage database tables.
 
 ---
-
-## Project Structure
-```
-LibraryManagementSystem/
-├── src/
-│   ├── main/
-│   │   ├── java/
-│   │   │   ├── com.example.library/
-│   │   │   │   ├── controller/      # Presentation Layer (JavaFX Controllers)
-│   │   │   │   ├── service/         # Service Layer (Business Logic)
-│   │   │   │   ├── model/           # Entity Classes (Database Tables)
-│   │   │   │   ├── repository/      # Data Access Layer (Hibernate Repositories)
-│   │   │   │   ├── util/            # Utility Classes (e.g., Database Connection)
-│   │   ├── resources/
-│   │   │   ├── fxml/                # FXML Files for UI Layouts
-│   │   │   ├── css/                 # Stylesheets for UI
-│   │   │   ├── images/              # Images and Icons
-│   ├── test/                        # Unit Tests
-├── pom.xml                          # Maven Configuration File
-├── README.md                        # Project Documentation
 ```
 
 ---
