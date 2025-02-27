@@ -1,4 +1,4 @@
-package controller.config;
+package config;
 
 import com.google.inject.AbstractModule;
 import repository.custome.BookDao;

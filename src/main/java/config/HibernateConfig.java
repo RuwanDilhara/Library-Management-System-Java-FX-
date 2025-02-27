@@ -1,4 +1,4 @@
-package controller.config;
+package config;
 
 import entity.BookEntity;
 import entity.MemberEntity;
@@ -25,7 +25,7 @@ public class HibernateConfig {
                 .build();
         return metadata.getSessionFactoryBuilder().build();
     }
-    public Session getSession(){
+    public static Session getSession(){
         return session.openSession();
     }
 }

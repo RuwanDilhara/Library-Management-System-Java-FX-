@@ -1,17 +1,28 @@
 package entity;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import util.enums.BookStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "Books")
 public class BookEntity {
+    @Id
     private String id;
     private String title;
-    private String iSBM;
+
+    @Column(unique = true, nullable = false)
+    private String isbn;
+
     private String author;
     private Integer year;
     private String image;
-    private Enum<BookStatus> status= BookStatus.AVAILABLE;
+
+    @Enumerated(EnumType.STRING)
+    private BookStatus status = BookStatus.AVAILABLE;
 }

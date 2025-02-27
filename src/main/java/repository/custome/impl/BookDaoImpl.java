@@ -1,7 +1,10 @@
 package repository.custome.impl;
 
+import config.HibernateConfig;
 import entity.BookEntity;
+import org.hibernate.Session;
 import repository.custome.BookDao;
+import util.enums.BookStatus;
 
 import java.util.List;
 
@@ -28,6 +31,11 @@ public class BookDaoImpl implements BookDao {
 
     @Override
     public List<BookEntity> getAll() {
-        return List.of();
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        List<BookEntity> fromBookEntity = session.createQuery("FROM BookEntity", BookEntity.class).getResultList();
+        session.getTransaction();
+        session.close();
+        return fromBookEntity;
     }
 }
