@@ -1,36 +1,44 @@
 package repository.custome.impl;
 
 import config.HibernateConfig;
+import dto.Book;
 import entity.BookEntity;
 import org.hibernate.Session;
 import repository.custome.BookDao;
-import util.enums.BookStatus;
 
 import java.util.List;
 
 public class BookDaoImpl implements BookDao {
     @Override
     public boolean save(BookEntity entity) {
-        return false;
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        session.persist(entity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
     public boolean update(BookEntity entity) {
         Session session = HibernateConfig.getSession();
-            session.beginTransaction();
-            session.merge(entity);
-            session.getTransaction().commit();
-            session.close();
-            return true;
-
-
+        session.beginTransaction();
+        session.merge(entity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
 
 
     }
 
     @Override
-    public boolean delete(String id) {
-        return false;
+    public boolean delete(BookEntity book) {
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        session.remove(book);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -45,7 +53,7 @@ public class BookDaoImpl implements BookDao {
         List<BookEntity> fromBookEntity = session.createQuery("FROM BookEntity", BookEntity.class).getResultList();
         session.getTransaction();
         session.close();
-        fromBookEntity.forEach(e->{
+        fromBookEntity.forEach(e -> {
             System.out.println(e);
         });
         return fromBookEntity;

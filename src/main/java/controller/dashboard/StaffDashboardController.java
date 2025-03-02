@@ -3,6 +3,7 @@ package controller.dashboard;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
@@ -10,8 +11,9 @@ import javafx.scene.layout.StackPane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class StaffDashboardController {
+public class StaffDashboardController implements Initializable {
 
     @FXML
     private StackPane componentLoader;
@@ -26,7 +28,7 @@ public class StaffDashboardController {
     private Label lblWelcome;
 
     @FXML
-    void btnAboutOnAction(ActionEvent event) {
+    void btnAboutOnAction() {
         URL url = this.componentLoader.getClass().getResource("/view/component/about_component.fxml");
         assert url!=null;
 
@@ -173,4 +175,8 @@ public class StaffDashboardController {
         }
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        btnAboutOnAction();
+    }
 }

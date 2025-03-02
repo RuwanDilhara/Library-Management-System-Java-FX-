@@ -65,7 +65,7 @@
                      </effect>
                   </JFXButton>
 
-                  <JFXButton onAction="#bynDeleteOnAction" style="-fx-background-color: #3F51B5; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Delete">
+                  <JFXButton onAction="#btnDeleteOnAction" style="-fx-background-color: #3F51B5; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Delete">
                      <effect>
                         <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
                      </effect>

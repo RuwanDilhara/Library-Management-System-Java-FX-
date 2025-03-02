@@ -4,51 +4,74 @@
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.book.BookManagementFormController">
    <children>
-      <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="55.0" prefWidth="334.0" spacing="10.0">
                <children>
-                  <JFXCheckBox text="Available">
+                  <Label text="Book Management Form">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
-                  </JFXCheckBox>
-                  <JFXCheckBox layoutX="88.0" layoutY="10.0">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
+                  </Label>
+                  <JFXButton buttonType="RAISED" onAction="#btnAddBookOnAction" style="-fx-background-color: green;" text="Add Book" textFill="WHITE">
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
-                  </JFXCheckBox>
-                  <JFXCheckBox layoutX="165.0" layoutY="10.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </HBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </JFXCheckBox>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.07017543911933899" green="0.7894737124443054" blue="0.2619883120059967" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.08421052992343903" green="0.3505263030529022" blue="0.5684210658073425" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <graphic>
+                        <ImageView fitHeight="17.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../img/add.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
                   <TextField style="-fx-background-radius: 5;">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
                      <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets />
                      </HBox.margin>
                   </TextField>
                   <JFXButton buttonType="RAISED" style="-fx-background-color: green;" text="Search" textFill="WHITE">
@@ -56,45 +79,68 @@
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets />
                      </HBox.margin>
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" style="-fx-background-color: green;" text="Clear" textFill="WHITE">
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" style="-fx-border-color: black; -fx-border-radius: 10;" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Label text="Filter">
+                           <font>
+                              <Font name="System Bold Italic" size="15.0" />
+                           </font>
+                        </Label>
+                        <JFXCheckBox text="Unavailable">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXCheckBox>
+                        <ComboBox promptText="Select Author" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ComboBox>
+                        <ComboBox promptText="Sort by" HBox.hgrow="ALWAYS" />
+                        <ComboBox promptText="Select Year" HBox.hgrow="ALWAYS" />
+                        <JFXButton buttonType="RAISED" style="-fx-background-color: green;" text="Filter" textFill="WHITE">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <JFXButton buttonType="RAISED" onAction="#btnReloadOnAction" style="-fx-background-color: #045746;" text="Reaload" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="26.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icon/reload.gif" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                      <padding>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                      </padding>
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        <Insets right="10.0" />
                      </HBox.margin>
                   </JFXButton>
-                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="SOMETIMES">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </Pane>
-                  <ComboBox prefWidth="150.0" promptText="sddsd">
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </ComboBox>
-                  <JFXButton buttonType="RAISED" style="-fx-background-color: green;" text="Sort" textFill="WHITE">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </HBox.margin>
-                  </JFXButton>
-                  <Pane prefHeight="100.0" prefWidth="0.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
             <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" vbarPolicy="ALWAYS">

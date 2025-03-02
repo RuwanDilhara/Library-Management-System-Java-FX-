@@ -1,5 +1,8 @@
 package controller.component.book;
 
+import dto.Book;
+import service.custome.BookService;
+import service.custome.impl.BookServiceImpl;
 import util.enums.BookStatus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,6 +35,7 @@ public class BookCardFormController {
     @FXML
     private ImageView image;
 
+    BookService service = new BookServiceImpl();
 
     public void setBookData(String id,String title,String iSBM, String author, Integer year, String imagePath ,Enum<BookStatus> available) {
         lblId.setText(id);
@@ -40,11 +44,6 @@ public class BookCardFormController {
         lblAuthor.setText(author);
         lblGen.setText(year.toString());
         image.setImage(new Image(imagePath));
-
-    }
-
-
-    public void bynDeleteOnAction(ActionEvent actionEvent) {
 
     }
 
@@ -74,5 +73,15 @@ public class BookCardFormController {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        service.delete(new Book(
+                lblId.getText(),
+                lblTitle.getText(),
+                lblISBM.getText(),
+                lblAuthor.getText(),
+                Integer.parseInt(lblGen.getText()),
+                image.getImage().getUrl(),
+                BookStatus.AVAILABLE
+        ));
+
     }
 }

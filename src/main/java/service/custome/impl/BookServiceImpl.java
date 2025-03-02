@@ -29,4 +29,16 @@ public class BookServiceImpl implements BookService {
         return bookDao.update(new ModelMapper()
                 .map(book, BookEntity.class));
     }
+
+    @Override
+    public boolean addBook(Book book) {
+        return bookDao.save(new ModelMapper()
+                .map(book, BookEntity.class));
+    }
+
+    @Override
+    public boolean delete(Book book) {
+        return bookDao.delete(new ModelMapper()
+                .map(book,BookEntity.class));
+    }
 }

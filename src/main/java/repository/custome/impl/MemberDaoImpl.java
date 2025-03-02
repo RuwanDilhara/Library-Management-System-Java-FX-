@@ -1,5 +1,6 @@
 package repository.custome.impl;
 
+import dto.Book;
 import entity.MemberEntity;
 import repository.custome.MemberDao;
 
@@ -18,7 +19,7 @@ public class MemberDaoImpl implements MemberDao {
 
 
     @Override
-    public boolean delete(String id) {
+    public boolean delete(MemberEntity member) {
         return false;
     }
 

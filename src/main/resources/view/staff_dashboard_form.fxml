@@ -47,7 +47,7 @@
                            </children>
                         </HBox>
                         <Pane prefHeight="68.0" prefWidth="222.0" />
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnHomeOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="HOME" textFill="WHITE" VBox.vgrow="ALWAYS">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnHomeOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="HOME" textFill="#e7e7e7" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -55,7 +55,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnBookManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Book Management" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnBookManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Book Management" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -63,7 +63,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="84.0" onAction="#btnMemberManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Member Management" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="84.0" onAction="#btnMemberManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Member Management" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -71,7 +71,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="124.0" onAction="#btnFineManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Fine Management" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="124.0" onAction="#btnFineManagementOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Fine Management" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -79,7 +79,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="184.0" onAction="#btnReturnBookOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Return Book" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="184.0" onAction="#btnReturnBookOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Return Book" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -87,7 +87,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="164.0" onAction="#btnReportOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Report" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="164.0" onAction="#btnReportOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Report" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -95,7 +95,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="235.0" onAction="#btnAboutOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="About" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" layoutX="20.0" layoutY="235.0" onAction="#btnAboutOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="About" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
@@ -103,7 +103,7 @@
                               <Insets bottom="10.0" />
                            </VBox.margin>
                         </JFXButton>
-                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnSettingOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-background-color: rgb(53, 59, 72);" text="Setting" textFill="WHITE">
+                        <JFXButton alignment="CENTER" buttonType="RAISED" contentDisplay="CENTER" onAction="#btnSettingOnAction" prefHeight="40.0" prefWidth="250.0" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #e7e7e7; -fx-background-color: rgb(53, 59, 72);" text="Setting" textFill="#e7e7e7">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
