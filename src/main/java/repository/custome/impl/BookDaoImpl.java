@@ -15,8 +15,17 @@ public class BookDaoImpl implements BookDao {
     }
 
     @Override
-    public boolean update(String string, BookEntity entity) {
-        return false;
+    public boolean update(BookEntity entity) {
+        Session session = HibernateConfig.getSession();
+            session.beginTransaction();
+            session.merge(entity);
+            session.getTransaction().commit();
+            session.close();
+            return true;
+
+
+
+
     }
 
     @Override
@@ -36,6 +45,9 @@ public class BookDaoImpl implements BookDao {
         List<BookEntity> fromBookEntity = session.createQuery("FROM BookEntity", BookEntity.class).getResultList();
         session.getTransaction();
         session.close();
+        fromBookEntity.forEach(e->{
+            System.out.println(e);
+        });
         return fromBookEntity;
     }
 }

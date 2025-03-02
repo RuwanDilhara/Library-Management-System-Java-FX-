@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="633.0" prefWidth="923.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.FineManagementComponentController">
-   <children>
-      <Label alignment="CENTER" layoutX="396.0" layoutY="95.0" prefHeight="75.0" prefWidth="923.0" text="Fine" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font name="System Bold" size="52.0" />
-         </font>
-      </Label>
-   </children>
-</AnchorPane>
+<BorderPane prefHeight="698.0" prefWidth="965.0" style="-fx-background-color: #1E1E2F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+
+   <!-- Main Content -->
+   <center>
+      <VBox prefHeight="800.0" prefWidth="980.0" spacing="30" style="-fx-padding: 30px;">
+         <Label style="-fx-text-fill: white; -fx-font-size: 32px; -fx-font-weight: bold;" text="Fine Management System" />
+
+         <HBox spacing="20">
+            <TextField promptText="Search Member ID or Name" style="-fx-background-color: white; -fx-padding: 10px; -fx-font-size: 14px;" />
+            <Button style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px;" text="Search" />
+         </HBox>
+
+         <TableView prefHeight="514.0" prefWidth="1021.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-padding: 10px;" VBox.vgrow="ALWAYS">
+            <columns>
+               <TableColumn text="Member ID" />
+               <TableColumn text="Name" />
+               <TableColumn text="Fine Amount" />
+               <TableColumn text="Due Date" />
+               <TableColumn prefWidth="98.39999389648438" text="Status" />
+            </columns>
+         </TableView>
+
+         <HBox spacing="20">
+            <Button style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Pay Fine" />
+            <Button style="-fx-background-color: #E67E22; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Send Reminder" />
+         </HBox>
+      </VBox>
+   </center>
+</BorderPane>

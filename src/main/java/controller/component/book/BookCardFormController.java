@@ -1,10 +1,5 @@
 package controller.component.book;
 
-import config.HibernateConfig;
-import entity.BookEntity;
-import org.hibernate.Session;
-import service.ServiceFactory;
-import service.custome.BookService;
 import util.enums.BookStatus;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import util.enums.ServiceType;
+
 
 import java.io.IOException;
 
@@ -60,7 +55,12 @@ public class BookCardFormController {
             Parent root = loader.load();
             UpdateBookFormController controller = loader.getController();
 
-            controller.setData(lblId.getText(),lblTitle.getText(),lblAuthor.getText(),4545,lblISBM.getText());
+            controller.setData(lblId.getText(),
+                    lblTitle.getText(),
+                    lblAuthor.getText(),
+                    Integer.parseInt(lblGen.getText()),
+                    lblISBM.getText(),
+                    image.getImage().getUrl());
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -71,6 +71,8 @@ public class BookCardFormController {
             throw new RuntimeException(e);
         }
 
+    }
 
+    public void btnDeleteOnAction(ActionEvent actionEvent) {
     }
 }

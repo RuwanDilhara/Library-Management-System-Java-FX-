@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="633.0" prefWidth="923.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.AboutComponentController">
-   <children>
-      <Label alignment="CENTER" layoutX="396.0" layoutY="95.0" prefHeight="75.0" prefWidth="923.0" text="About" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <font>
-            <Font name="System Bold" size="52.0" />
-         </font>
-      </Label>
-   </children>
+<AnchorPane stylesheets="@../../css/about.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.AboutComponentController">
+
+    <VBox alignment="CENTER" fillWidth="false" prefHeight="550" prefWidth="700" spacing="15" styleClass="background-pane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!-- Profile Image -->
+        <ImageView fx:id="profileImage" fitHeight="150" fitWidth="150" styleClass="profile-img">
+            <image>
+                <Image url="@../../img/developer.png" />
+            </image>
+        </ImageView>
+
+        <Label styleClass="title-label" text="📚 Library Management System" />
+        <Label styleClass="subtitle-label" text="🚀 Version 1.0.0 | Developed by Ruwan Dilhara" />
+
+        <HBox spacing="15" />
+
+        <HBox alignment="CENTER" spacing="15" styleClass="contact-box">
+            <Label styleClass="contact-label" text="📧 ruwandilhara81@.com" />
+        </HBox>
+    </VBox>
 </AnchorPane>

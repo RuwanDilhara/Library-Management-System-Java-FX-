@@ -12,9 +12,10 @@ public class MemberDaoImpl implements MemberDao {
     }
 
     @Override
-    public boolean update(String string, MemberEntity entity) {
+    public boolean update(MemberEntity entity) {
         return false;
     }
+
 
     @Override
     public boolean delete(String id) {

@@ -2,6 +2,7 @@ package service.custome.impl;
 
 import com.google.inject.Inject;
 import dto.Book;
+import entity.BookEntity;
 import org.modelmapper.ModelMapper;
 import repository.custome.BookDao;
 import repository.custome.impl.BookDaoImpl;
@@ -21,5 +22,11 @@ public class BookServiceImpl implements BookService {
             bookList.add(new ModelMapper().map(entity,Book.class));
         });
         return bookList;
+    }
+
+    @Override
+    public boolean updateBook(Book book) {
+        return bookDao.update(new ModelMapper()
+                .map(book, BookEntity.class));
     }
 }

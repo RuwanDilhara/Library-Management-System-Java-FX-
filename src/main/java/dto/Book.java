@@ -13,7 +13,7 @@ import lombok.ToString;
 public class Book {
     private String id;
     private String title;
-    private String iSBM;
+    private String isbn;
     private String author;
     private Integer year;
     private String image;
