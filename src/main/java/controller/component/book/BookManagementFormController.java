@@ -1,36 +1,29 @@
 package controller.component.book;
 
-import com.google.inject.Inject;
 import com.jfoenix.controls.JFXCheckBox;
 import dto.Book;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import service.custome.BookService;
 import service.custome.impl.BookServiceImpl;
 import util.enums.BookStatus;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class BookManagementFormController implements Initializable {
 
@@ -47,119 +40,84 @@ public class BookManagementFormController implements Initializable {
     private GridPane gridPane;
 
     @FXML
-    private ScrollPane scrollPane;
+    private TextField txtSearch;
 
-    BookService service = new BookServiceImpl();
+    private final BookService service = new BookServiceImpl();
+    private static final int COLUMN_COUNT = 4;
+
+    List<Book> books = service.getAll();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadBook(null);
-        comboBoXLoader();
+        loadBooks(null);
+        loadComboBoxes();
     }
 
-    int column = 4;
-
-
-    public BookStatus isBookAvailableType() {
-        return checkUnavailable.isSelected() ? BookStatus.
-                UNAVAILABLE : BookStatus.AVAILABLE;
+    private BookStatus getSelectedBookStatus() {
+        return checkUnavailable.isSelected() ? BookStatus.UNAVAILABLE : BookStatus.AVAILABLE;
     }
 
-    public void loadBook(String str) {
+    private void loadBooks(String authorFilter) {
+        gridPane.getChildren().clear();
         int col = 0;
-        int raw = 0;
+        int row = 0;
 
-        if (str == null) {
-            gridPane.getChildren().clear();
-            for (Book book : service.getAll()) {
-                if (isBookAvailableType() == book.getStatus()) {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
-                        AnchorPane bookCard = loader.load();
-
-                        BookCardFormController bookCardFormController = loader.getController();
-                        bookCardFormController.setBookData(book.getId(),
-                                book.getTitle(),
-                                book.getIsbn(),
-                                book.getAuthor(),
-                                book.getYear(),
-                                book.getImage(),
-                                book.getStatus());
-                        gridPane.add(bookCard, col, raw);
-
-                        col++;
-
-                        if (col == column) {
-                            col = 0;
-                            raw++;
-                        }
-
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }
-        } else {
-            gridPane.getChildren().clear();
-            for (Book book : service.getAll()) {
-                if (isBookAvailableType() == book.getStatus()) {
-                    if (str.equals(book.getAuthor())){
-                        try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
-                            AnchorPane bookCard = loader.load();
-
-                            BookCardFormController bookCardFormController = loader.getController();
-                            bookCardFormController.setBookData(book.getId(),
-                                    book.getTitle(),
-                                    book.getIsbn(),
-                                    book.getAuthor(),
-                                    book.getYear(),
-                                    book.getImage(),
-                                    book.getStatus());
-                            gridPane.add(bookCard, col, raw);
-
-                            col++;
-
-                            if (col == column) {
-                                col = 0;
-                                raw++;
-                            }
-
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
+        for (Book book : books) {
+            if (book.getStatus() == getSelectedBookStatus() && (authorFilter == null || authorFilter.equals(book.getAuthor()))) {
+                addBookToGrid(book, col, row);
+                if (++col == COLUMN_COUNT) {
+                    col = 0;
+                    row++;
                 }
             }
         }
     }
 
-    @FXML
-    void btnAddBookOnAction(ActionEvent actionEvent) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/add_book_form.fxml"));
+    private void addBookToGrid(Book book, int col, int row) {
         try {
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.setTitle("Add Book Form");
-            stage.show();
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
+            AnchorPane bookCard = loader.load();
+            BookCardFormController controller = loader.getController();
+            controller.setBookData(book.getId(), book.getTitle(), book.getIsbn(), book.getAuthor(), book.getYear(), book.getImage(), book.getStatus());
+            gridPane.add(bookCard, col, row);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            showError("Error loading book card.");
         }
     }
 
     @FXML
-    void btnReloadOnAction(ActionEvent actionEvent) {
+    void btnAddBookOnAction() {
+        loadNewWindow("/view/component/add_book_form.fxml", "Add Book Form");
+    }
+
+    @FXML
+    void btnReloadOnAction() {
         reLoadData();
     }
+    @FXML
+    void btnSearchOnAction() {
+        List<Book> result = service.searchByTitle(txtSearch.getText());
+        if (result.isEmpty()){
+            result=service.searchByAuthor(txtSearch.getText());
+            if (result.isEmpty()){
+                result.add(service.searchByID(txtSearch.getText()));
+            }
+        }
+        books= result;
+        loadBooks(null);
+    }
 
     @FXML
-    void btnFilterOnAction(ActionEvent event) {
-        if (cmbAuthor.getValue() == null) {
-            new Alert(Alert.AlertType.INFORMATION, "Select Author").show();
+    void btnFilterOnAction() {
+        if (checkUnavailable.isSelected() || cmbAuthor.getValue() != null || cmbSortBy.getValue() != null) {
+            if (cmbSortBy.getValue() == null){
+                loadBooks(cmbAuthor.getValue());
+            }else{
+                sortBooks(cmbSortBy.getValue());
+                loadBooks(cmbAuthor.getValue());
+            }
         } else {
-            loadBook(cmbAuthor.getValue());
+            showInfo("Select Filter Option");
         }
     }
 
@@ -167,29 +125,51 @@ public class BookManagementFormController implements Initializable {
     void reLoadData() {
         Platform.runLater(() -> {
             gridPane.getChildren().clear();
-            loadBook(null);
-            comboBoXLoader();
+            loadBooks(null);
+            loadComboBoxes();
         });
     }
 
-    public void comboBoXLoader() {
-        ObservableList<String> authurObservableList = FXCollections.observableArrayList();
-        authurObservableList.addAll(service.getAllAuthor());
-        cmbAuthor.setItems(authurObservableList);
-
-        ObservableList<String> sortObservableList = FXCollections.observableArrayList();
-        sortObservableList.add("Id");
-        sortObservableList.add("Title");
-        sortObservableList.add("Year");
-        cmbSortBy.setItems(sortObservableList);
+    private void loadComboBoxes() {
+        cmbAuthor.setItems(FXCollections.observableArrayList(service.getAllAuthor()));
+        cmbSortBy.setItems(FXCollections.observableArrayList("Id", "Title", "Year"));
     }
-//    @FXML
-//    void reLoader(){
-//        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-//        Runnable task = () -> {
-//            reLoadData();
-//        };
-//        scheduler.scheduleAtFixedRate(task, 0, 2, TimeUnit.SECONDS);
-//    }
 
+    private void sortBooks(String sortBy) {
+        switch (sortBy) {
+            case "Id" : sortingById();break;
+            case "Title" : sortingByTitle();break;
+            case "Year" : sortingByYear();break;
+            default : showError("Invalid sorting option selected.");
+        }
+    }
+
+    private void loadNewWindow(String resourcePath, String title) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(resourcePath));
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle(title);
+            stage.show();
+        } catch (IOException e) {
+            showError("Unable to open ->" + e.getMessage());
+        }
+    }
+
+    public void sortingById(){
+        books.sort(Comparator.comparing(Book::getId));
+    }
+    public void sortingByTitle(){
+        books.sort(Comparator.comparing(Book::getTitle));
+    }
+    public void sortingByYear(){
+        books.sort(Comparator.comparing(Book::getYear));
+    }
+    private void showError(String message) {
+        new Alert(Alert.AlertType.ERROR, message).show();
+    }
+
+    private void showInfo(String message) {
+        new Alert(Alert.AlertType.INFORMATION, message).show();
+    }
 }

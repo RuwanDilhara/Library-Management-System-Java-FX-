@@ -1,0 +1,49 @@
+/* Stats Box Styling */
+.stats-box {
+    -fx-padding: 20;
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #ddd;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 5);
+}
+
+.stats-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #666;
+}
+
+.stats-value {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Quick Action Buttons */
+.quick-action-btn {
+    -fx-padding: 10 20;
+    -fx-background-color: #3498db;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+}
+
+.quick-action-btn:hover {
+    -fx-background-color: #2980b9;
+}
+
+/* Table Styling */
+.compact-table {
+    -fx-font-size: 12px;
+}
+
+.compact-table .table-column {
+    -fx-alignment: CENTER;
+}
+
+.section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+    -fx-padding: 0 0 5 0;
+}
