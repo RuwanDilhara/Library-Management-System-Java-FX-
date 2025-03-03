@@ -17,9 +17,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getAll() {
         List<Book> bookList = new ArrayList<>();
-        bookDao.getAll().forEach(entity -> {
-            bookList.add(new ModelMapper().map(entity, Book.class));
-        });
+        bookDao.getAll().forEach(entity -> bookList.add(new ModelMapper()
+                .map(entity, Book.class)));
         return bookList;
     }
 
