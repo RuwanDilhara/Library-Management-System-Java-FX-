@@ -109,7 +109,7 @@
                            </font>
                         </JFXButton>
                         <Pane prefHeight="138.0" prefWidth="214.0" />
-                        <JFXButton onAction="#btnLogOutOnAction" prefHeight="26.0" prefWidth="252.0" style="-fx-background-color: rgb(53, 59, 72); -fx-background-radius: 12;" text="Log Out" textFill="WHITE">
+                        <JFXButton onAction="#btnLogOutOnAction" prefHeight="26.0" prefWidth="252.0" style="-fx-background-color: rgb(53, 59, 72); -fx-border-color: d40606; -fx-border-radius: 10; -fx-background-radius: 12;" text="Log Out" textFill="WHITE">
                            <graphic>
                               <ImageView fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
                                  <image>

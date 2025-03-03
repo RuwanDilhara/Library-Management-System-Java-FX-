@@ -1,5 +1,6 @@
 package controller.component.book;
 
+import com.jfoenix.controls.JFXToggleButton;
 import dto.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +22,7 @@ import java.nio.file.StandardCopyOption;
 public class UpdateBookFormController {
 
     final BookService service = new BookServiceImpl();
+    public JFXToggleButton tglAvailability;
     private String imagePath;
 
     public TextField txtYear;
@@ -58,6 +60,7 @@ public class UpdateBookFormController {
         this.lblAuthor.setText(txtAuthor.getText());
         this.lblGen.setText(txtYear.getText());
         this.lblISBM.setText(txtISBM.getText());
+
     }
 
     @FXML
@@ -102,19 +105,25 @@ public class UpdateBookFormController {
                 txtISBM.getText(),
                 txtAuthor.getText(),
                 Integer.parseInt(txtYear.getText()),
-                updatedImagePath, // Use the correct image path
-                BookStatus.AVAILABLE
+                updatedImagePath,
+                isAvailable()
         ));
 
         System.out.println("Book Updated with Image Path: " + updatedImagePath);
     }
 
-    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath) {
+    public BookStatus isAvailable(){
+        return tglAvailability.isSelected()?
+                BookStatus.UNAVAILABLE:BookStatus.AVAILABLE;
+    }
+    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath,BookStatus status) {
         this.txtID.setText(id);
         this.txtTitle.setText(title);
         this.txtISBM.setText(iSBM);
         this.txtAuthor.setText(author);
         this.txtYear.setText(year.toString());
+
+        tglAvailability.setSelected(status != BookStatus.AVAILABLE);
 
         this.lblId.setText(id);
         this.lblTitle.setText(title);

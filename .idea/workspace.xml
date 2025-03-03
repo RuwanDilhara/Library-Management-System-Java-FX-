@@ -4,21 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="completed the ui">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/AddBookFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/component/add_book_form.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/icon/reload.gif" afterDir="false" />
+    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="completed the select author filter feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/dashboard/StaffDashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/dashboard/StaffDashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/CrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/CrudRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BookDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BookDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repository/custome/impl/MemberDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/MemberDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/UpdateBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/UpdateBookFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BookEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_card.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_management_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_management_component.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_update_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_update_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/staff_dashboard_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/staff_dashboard_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740886435189</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="completed the Book Management ui">
+      <option name="closed" value="true" />
+      <created>1740924149353</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1740924149353</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -161,7 +165,9 @@
     <MESSAGE value="hibernate integrate" />
     <MESSAGE value="Connect to the database" />
     <MESSAGE value="completed the ui" />
-    <option name="LAST_COMMIT_MESSAGE" value="completed the ui" />
+    <MESSAGE value="completed the Book Management ui" />
+    <MESSAGE value="completed the select author filter feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed the select author filter feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

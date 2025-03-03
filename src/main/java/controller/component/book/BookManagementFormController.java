@@ -1,11 +1,17 @@
 package controller.component.book;
 
 import com.google.inject.Inject;
+import com.jfoenix.controls.JFXCheckBox;
 import dto.Book;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import service.custome.BookService;
 import service.custome.impl.BookServiceImpl;
@@ -29,6 +35,15 @@ import java.util.concurrent.TimeUnit;
 public class BookManagementFormController implements Initializable {
 
     @FXML
+    private JFXCheckBox checkUnavailable;
+
+    @FXML
+    private ComboBox<String> cmbAuthor;
+
+    @FXML
+    private ComboBox<String> cmbSortBy;
+
+    @FXML
     private GridPane gridPane;
 
     @FXML
@@ -38,40 +53,84 @@ public class BookManagementFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadBook();
+        loadBook(null);
+        comboBoXLoader();
     }
 
     int column = 4;
 
-    public void loadBook() {
+
+    public BookStatus isBookAvailableType() {
+        return checkUnavailable.isSelected() ? BookStatus.
+                UNAVAILABLE : BookStatus.AVAILABLE;
+    }
+
+    public void loadBook(String str) {
         int col = 0;
         int raw = 0;
-        for (Book book : service.getAll()) {
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
-                AnchorPane bookCard = loader.load();
 
-                BookCardFormController bookCardFormController = loader.getController();
-                bookCardFormController.setBookData(book.getId(),
-                        book.getTitle(),
-                        book.getIsbn(),
-                        book.getAuthor(),
-                        book.getYear(),
-                        book.getImage(),
-                        book.getStatus());
-                gridPane.add(bookCard, col, raw);
+        if (str == null) {
+            gridPane.getChildren().clear();
+            for (Book book : service.getAll()) {
+                if (isBookAvailableType() == book.getStatus()) {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
+                        AnchorPane bookCard = loader.load();
 
-                col++;
+                        BookCardFormController bookCardFormController = loader.getController();
+                        bookCardFormController.setBookData(book.getId(),
+                                book.getTitle(),
+                                book.getIsbn(),
+                                book.getAuthor(),
+                                book.getYear(),
+                                book.getImage(),
+                                book.getStatus());
+                        gridPane.add(bookCard, col, raw);
 
-                if (col == column) {
-                    col = 0;
-                    raw++;
+                        col++;
+
+                        if (col == column) {
+                            col = 0;
+                            raw++;
+                        }
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                 }
-
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+        } else {
+            gridPane.getChildren().clear();
+            for (Book book : service.getAll()) {
+                if (isBookAvailableType() == book.getStatus()) {
+                    if (str.equals(book.getAuthor())){
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
+                            AnchorPane bookCard = loader.load();
 
+                            BookCardFormController bookCardFormController = loader.getController();
+                            bookCardFormController.setBookData(book.getId(),
+                                    book.getTitle(),
+                                    book.getIsbn(),
+                                    book.getAuthor(),
+                                    book.getYear(),
+                                    book.getImage(),
+                                    book.getStatus());
+                            gridPane.add(bookCard, col, raw);
+
+                            col++;
+
+                            if (col == column) {
+                                col = 0;
+                                raw++;
+                            }
+
+                        } catch (IOException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -94,12 +153,35 @@ public class BookManagementFormController implements Initializable {
     void btnReloadOnAction(ActionEvent actionEvent) {
         reLoadData();
     }
+
     @FXML
-    void reLoadData(){
+    void btnFilterOnAction(ActionEvent event) {
+        if (cmbAuthor.getValue() == null) {
+            new Alert(Alert.AlertType.INFORMATION, "Select Author").show();
+        } else {
+            loadBook(cmbAuthor.getValue());
+        }
+    }
+
+    @FXML
+    void reLoadData() {
         Platform.runLater(() -> {
             gridPane.getChildren().clear();
-            loadBook();
+            loadBook(null);
+            comboBoXLoader();
         });
+    }
+
+    public void comboBoXLoader() {
+        ObservableList<String> authurObservableList = FXCollections.observableArrayList();
+        authurObservableList.addAll(service.getAllAuthor());
+        cmbAuthor.setItems(authurObservableList);
+
+        ObservableList<String> sortObservableList = FXCollections.observableArrayList();
+        sortObservableList.add("Id");
+        sortObservableList.add("Title");
+        sortObservableList.add("Year");
+        cmbSortBy.setItems(sortObservableList);
     }
 //    @FXML
 //    void reLoader(){

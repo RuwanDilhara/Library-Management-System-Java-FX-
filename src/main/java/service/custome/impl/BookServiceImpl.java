@@ -1,6 +1,5 @@
 package service.custome.impl;
 
-import com.google.inject.Inject;
 import dto.Book;
 import entity.BookEntity;
 import org.modelmapper.ModelMapper;
@@ -18,8 +17,8 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> getAll() {
         List<Book> bookList = new ArrayList<>();
-        bookDao.getAll().forEach(entity->{
-            bookList.add(new ModelMapper().map(entity,Book.class));
+        bookDao.getAll().forEach(entity -> {
+            bookList.add(new ModelMapper().map(entity, Book.class));
         });
         return bookList;
     }
@@ -39,6 +38,27 @@ public class BookServiceImpl implements BookService {
     @Override
     public boolean delete(Book book) {
         return bookDao.delete(new ModelMapper()
-                .map(book,BookEntity.class));
+                .map(book, BookEntity.class));
+    }
+
+    @Override
+    public List<String> getAllAuthor() {
+        List<String> authorList = new ArrayList<>();
+        for (Book book : getAll()) {
+            if (authorList.isEmpty()) {
+                authorList.add(book.getAuthor());
+            }else {
+                String exitAuthor="";
+                for (String author:authorList){
+                    if (book.getAuthor().equals(author)){
+                        exitAuthor=author;
+                    }
+                }
+                if (exitAuthor.isBlank()){
+                    authorList.add(book.getAuthor());
+                }
+            }
+        }
+        return authorList;
     }
 }

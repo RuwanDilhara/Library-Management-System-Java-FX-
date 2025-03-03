@@ -24,5 +24,5 @@ public class BookEntity {
     private String image;
 
     @Enumerated(EnumType.STRING)
-    private BookStatus status = BookStatus.AVAILABLE;
+    private BookStatus status;
 }

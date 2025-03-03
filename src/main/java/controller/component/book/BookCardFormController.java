@@ -35,9 +35,11 @@ public class BookCardFormController {
     @FXML
     private ImageView image;
 
+    private BookStatus status;
+
     BookService service = new BookServiceImpl();
 
-    public void setBookData(String id,String title,String iSBM, String author, Integer year, String imagePath ,Enum<BookStatus> available) {
+    public void setBookData(String id,String title,String iSBM, String author, Integer year, String imagePath ,BookStatus available) {
         lblId.setText(id);
         lblTitle.setText(title);
         lblISBM.setText(iSBM);
@@ -45,6 +47,7 @@ public class BookCardFormController {
         lblGen.setText(year.toString());
         image.setImage(new Image(imagePath));
 
+        this.status=available;
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
@@ -54,12 +57,15 @@ public class BookCardFormController {
             Parent root = loader.load();
             UpdateBookFormController controller = loader.getController();
 
-            controller.setData(lblId.getText(),
+            controller.setData(
+                    lblId.getText(),
                     lblTitle.getText(),
                     lblAuthor.getText(),
                     Integer.parseInt(lblGen.getText()),
                     lblISBM.getText(),
-                    image.getImage().getUrl());
+                    image.getImage().getUrl(),
+                    status
+            );
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

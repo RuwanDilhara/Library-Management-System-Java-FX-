@@ -17,5 +17,5 @@ public class Book {
     private String author;
     private Integer year;
     private String image;
-    private Enum<BookStatus> status= BookStatus.AVAILABLE;
+    private BookStatus status;
 }

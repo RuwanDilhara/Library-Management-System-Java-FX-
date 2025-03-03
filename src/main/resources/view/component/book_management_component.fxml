@@ -98,19 +98,18 @@
                               <Font name="System Bold Italic" size="15.0" />
                            </font>
                         </Label>
-                        <JFXCheckBox text="Unavailable">
+                        <JFXCheckBox fx:id="checkUnavailable" text="Unavailable">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </JFXCheckBox>
-                        <ComboBox promptText="Select Author" HBox.hgrow="ALWAYS">
+                        <ComboBox fx:id="cmbAuthor" promptText="Select Author" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </ComboBox>
-                        <ComboBox promptText="Sort by" HBox.hgrow="ALWAYS" />
-                        <ComboBox promptText="Select Year" HBox.hgrow="ALWAYS" />
-                        <JFXButton buttonType="RAISED" style="-fx-background-color: green;" text="Filter" textFill="WHITE">
+                        <ComboBox fx:id="cmbSortBy" promptText="Sort by" HBox.hgrow="ALWAYS" />
+                        <JFXButton buttonType="RAISED" onAction="#btnFilterOnAction" style="-fx-background-color: green;" text="Filter" textFill="WHITE">
                            <padding>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </padding>
