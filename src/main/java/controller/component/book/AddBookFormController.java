@@ -110,22 +110,22 @@ public class AddBookFormController {
         System.out.println("Book Updated with Image Path: " + updatedImagePath);
     }
 
-    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath) {
-        this.txtID.setText(id);
-        this.txtTitle.setText(title);
-        this.txtISBM.setText(iSBM);
-        this.txtAuthor.setText(author);
-        this.txtYear.setText(year.toString());
-
-        this.lblId.setText(id);
-        this.lblTitle.setText(title);
-        this.lblAuthor.setText(author);
-        this.lblGen.setText(year.toString());
-        this.lblISBM.setText(iSBM);
-
-        this.imagePath = imgPath; // Store the existing image path
-        image.setImage(new Image(imgPath)); // Load the existing image
-    }
+//    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath) {
+//        this.txtID.setText(id);
+//        this.txtTitle.setText(title);
+//        this.txtISBM.setText(iSBM);
+//        this.txtAuthor.setText(author);
+//        this.txtYear.setText(year.toString());
+//
+//        this.lblId.setText(id);
+//        this.lblTitle.setText(title);
+//        this.lblAuthor.setText(author);
+//        this.lblGen.setText(year.toString());
+//        this.lblISBM.setText(iSBM);
+//
+//        this.imagePath = imgPath; // Store the existing image path
+//        image.setImage(new Image(imgPath)); // Load the existing image
+//    }
 
     public String generateId(){
         String lastNumber = service.getAll()

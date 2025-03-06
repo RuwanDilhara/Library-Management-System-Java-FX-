@@ -1,6 +1,7 @@
 package controller.component.member;
 
 import dto.Member;
+import javafx.event.ActionEvent;
 import util.enums.MemberStatus;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -76,5 +77,17 @@ public class MemberManagementFormController implements Initializable {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public void btnReloadOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnFilterOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnSearchOnAction(ActionEvent actionEvent) {
+    }
+
+    public void btnAddMemberOnAction(ActionEvent actionEvent) {
     }
 }

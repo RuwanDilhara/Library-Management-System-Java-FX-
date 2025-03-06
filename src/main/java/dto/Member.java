@@ -19,6 +19,6 @@ public class Member {
     private String email;
     private String contact;
     private LocalDate membershipDate;
-    private Enum<MemberStatus> status;
+    private MemberStatus status;
 
 }

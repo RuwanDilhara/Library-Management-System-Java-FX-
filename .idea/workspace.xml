@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="fix bug in BookServiceImpl">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" afterDir="false" />
+    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="complete the Book Management part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/AddBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/AddBookFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/BookService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_management_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_management_component.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/home_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/home_component.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberManagementFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberManagementFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/member_management_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/member_management_component.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740981969964</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="complete the Book Management part">
+      <option name="closed" value="true" />
+      <created>1741019007442</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1741019007442</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -181,7 +187,8 @@
     <MESSAGE value="completed the Book Management ui" />
     <MESSAGE value="completed the select author filter feature" />
     <MESSAGE value="fix bug in BookServiceImpl" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix bug in BookServiceImpl" />
+    <MESSAGE value="complete the Book Management part" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete the Book Management part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

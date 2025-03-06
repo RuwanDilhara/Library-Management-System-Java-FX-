@@ -24,6 +24,9 @@ import java.net.URL;
 import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class BookManagementFormController implements Initializable {
 
@@ -51,6 +54,7 @@ public class BookManagementFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadBooks(null);
         loadComboBoxes();
+        searchSuggester();
     }
 
     private BookStatus getSelectedBookStatus() {
@@ -123,19 +127,18 @@ public class BookManagementFormController implements Initializable {
 
     @FXML
     void reLoadData() {
-        Platform.runLater(() -> {
+        books=service.getAll();
             gridPane.getChildren().clear();
             loadBooks(null);
             loadComboBoxes();
-        });
     }
 
-    private void loadComboBoxes() {
+    public void loadComboBoxes() {
         cmbAuthor.setItems(FXCollections.observableArrayList(service.getAllAuthor()));
         cmbSortBy.setItems(FXCollections.observableArrayList("Id", "Title", "Year"));
     }
 
-    private void sortBooks(String sortBy) {
+    public void sortBooks(String sortBy) {
         switch (sortBy) {
             case "Id" : sortingById();break;
             case "Title" : sortingByTitle();break;
@@ -144,7 +147,7 @@ public class BookManagementFormController implements Initializable {
         }
     }
 
-    private void loadNewWindow(String resourcePath, String title) {
+    public void loadNewWindow(String resourcePath, String title) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource(resourcePath));
             Stage stage = new Stage();
@@ -172,4 +175,26 @@ public class BookManagementFormController implements Initializable {
     private void showInfo(String message) {
         new Alert(Alert.AlertType.INFORMATION, message).show();
     }
+
+
+    public void searchSuggester() {
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.trim().isEmpty()) {
+                books = service.searchByTitle(newValue);
+                if (books.isEmpty()) {
+                    books = service.searchByAuthor(newValue);
+                    if (books.isEmpty()) {
+                        Book book = service.searchByID(newValue);
+                        if (book != null) {
+                            books.add(book);
+                        }
+                    }
+                }
+            } else {
+                books = service.getAll();
+            }
+            loadBooks(null);
+        });
+    }
+
 }
