@@ -143,7 +143,7 @@
                   </JFXButton>
                </children>
             </HBox>
-            <ScrollPane fitToHeight="true" fitToWidth="true" vbarPolicy="ALWAYS">
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" vbarPolicy="ALWAYS">
                <content>
                   <GridPane fx:id="gridPane" hgap="15.0" style="-fx-padding: 20;" vgap="15.0" />
                </content>

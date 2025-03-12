@@ -179,4 +179,15 @@ public class StaffDashboardController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         btnAboutOnAction();
     }
+
+    public void btnIssueBookOnAction(ActionEvent actionEvent) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/issue_book_form.fxml"));
+        try {
+            Parent root = loader.load();
+            componentLoader.getChildren().clear();
+            componentLoader.getChildren().add(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

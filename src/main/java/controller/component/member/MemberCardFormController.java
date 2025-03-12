@@ -3,11 +3,17 @@ package controller.component.member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import util.enums.MemberGenderType;
+import util.enums.MemberStatus;
 
+import javax.imageio.ImageIO;
 import java.time.LocalDate;
 
 public class MemberCardFormController {
 
+    public ImageView imageUrl;
     @FXML
     private Label lblAddress;
 
@@ -35,13 +41,15 @@ public class MemberCardFormController {
     void bynDeleteOnAction(ActionEvent event) {
 
     }
-    public void setMemberData(String id, String name, String address, LocalDate membershipDate ,String contact ,String email){
+
+    public void setMemberData(String id, String name, String address, LocalDate membershipDate, String contact, String email, MemberStatus status ,Integer borrowBookCount, MemberGenderType type, String imageUrl) {
         lblID.setText(id);
         lblName.setText(name);
         lblAddress.setText(address);
         lblMemberDate.setText(membershipDate.toString());
         lblContact.setText(contact);
         lblEmail.setText(email);
+        this.imageUrl.setImage(new Image(imageUrl));
     }
 
 }

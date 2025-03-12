@@ -51,7 +51,7 @@ public class BookDaoImpl implements BookDao {
         Session session = HibernateConfig.getSession();
         session.beginTransaction();
         List<BookEntity> fromBookEntity = session.createQuery("FROM BookEntity", BookEntity.class).getResultList();
-        session.getTransaction();
+        session.getTransaction().commit();
         session.close();
         fromBookEntity.forEach(e -> {
             System.out.println(e);

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -44,6 +45,9 @@ public class BookManagementFormController implements Initializable {
 
     @FXML
     private TextField txtSearch;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     private final BookService service = new BookServiceImpl();
     private static final int COLUMN_COUNT = 4;
@@ -91,7 +95,15 @@ public class BookManagementFormController implements Initializable {
 
     @FXML
     void btnAddBookOnAction() {
-        loadNewWindow("/view/component/add_book_form.fxml", "Add Book Form");
+//        loadNewWindow("/view/component/add_book_form.fxml", "Add Book Form");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/add_member_form.fxml"));
+        try {
+            Parent root = loader.load();
+            gridPane.getChildren().clear();
+            gridPane.getChildren().add(root);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

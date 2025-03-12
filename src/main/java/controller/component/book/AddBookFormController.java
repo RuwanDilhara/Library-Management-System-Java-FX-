@@ -128,14 +128,22 @@ public class AddBookFormController {
 //    }
 
     public String generateId(){
-        String lastNumber = service.getAll()
-                .getLast()
-                .getId()
-                .substring(1);
+        String newId;
+        if (!service.getAll().isEmpty()){
+            String lastNumber = service.getAll()
+                    .getLast()
+                    .getId()
+                    .substring(1);
 
-        String newId = "B" + String.format("%03d", Integer.parseInt(lastNumber) + 1);
-        lblId.setText(newId);
-        txtID.setText(newId);
-        return newId;
+            System.out.println(service.getAll().getLast());
+
+            newId = "B" + String.format("%03d", Integer.parseInt(lastNumber) + 1);
+            lblId.setText(newId);
+            txtID.setText(newId);
+            return newId;
+        }else {
+            return "B001";
+        }
+
     }
 }

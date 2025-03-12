@@ -1,0 +1,98 @@
+/* General Card Styling */
+.card {
+    background-color: #ffffff; /* White background for clarity */
+    border-radius: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect for Cards */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+}
+
+/* Member and Book Image Styling */
+.card img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 3px solid #f8b400; /* Golden border for images */
+    margin-bottom: 15px;
+}
+
+/* Title and Description Text Styling */
+.card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333333; /* Dark grey for better readability */
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 14px;
+    color: #777777; /* Light grey for descriptions */
+}
+
+/* Book Status and Member Status Styling */
+.status {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Available Book Status */
+.available {
+    color: #4caf50; /* Green for available status */
+}
+
+/* Unavailable Book Status */
+.unavailable {
+    color: #f44336; /* Red for unavailable status */
+}
+
+/* Member Active Status */
+.active {
+    color: #2196f3; /* Blue for active status */
+}
+
+/* Member Inactive Status */
+.inactive {
+    color: #ff5722; /* Red for inactive status */
+}
+
+/* Buttons */
+button {
+    background-color: #ff5722; /* Orange button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff3d00; /* Darker orange on hover */
+}
+
+/* Layout for the Container */
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Feedback or Error Message */
+.feedback-message {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff5722; /* Red color for error */
+    margin-top: 10px;
+}

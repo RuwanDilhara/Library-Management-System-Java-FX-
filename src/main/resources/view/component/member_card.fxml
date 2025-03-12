@@ -17,7 +17,7 @@
          </effect>
          <children>
             <!-- Member Image -->
-            <ImageView fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
+            <ImageView fx:id="imageUrl" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
                <image>
                   <Image url="@../../img/member/male_avatar.png" />
                </image>

@@ -1,5 +1,6 @@
 package dto;
 
+import util.enums.MemberGenderType;
 import util.enums.MemberStatus;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,8 @@ public class Member {
     private String contact;
     private LocalDate membershipDate;
     private MemberStatus status;
+    private Integer borrowedBookCount ;
+    private MemberGenderType gender;
+    private String imageUrl;
 
 }
