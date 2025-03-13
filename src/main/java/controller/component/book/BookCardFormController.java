@@ -1,6 +1,8 @@
 package controller.component.book;
 
+import controller.component.IssueBookFormController;
 import dto.Book;
+import javafx.scene.input.MouseEvent;
 import service.custome.BookService;
 import service.custome.impl.BookServiceImpl;
 import util.enums.BookStatus;
@@ -19,12 +21,17 @@ import java.io.IOException;
 
 
 public class BookCardFormController {
-    public Label lblId;
+    @FXML
+    private Label lblId;
+
     @FXML
     private Label lblTitle;
 
     @FXML
     private Label lblISBM;
+
+    @FXML
+    private Label lblQty;
 
     @FXML
     private Label lblAuthor;
@@ -39,7 +46,7 @@ public class BookCardFormController {
 
     BookService service = new BookServiceImpl();
 
-    public void setBookData(String id,String title,String iSBM, String author, Integer year, String imagePath ,BookStatus available) {
+    public void setBookData(String id,String title,String iSBM, String author, Integer year, String imagePath ,BookStatus available ,int qty) {
         lblId.setText(id);
         lblTitle.setText(title);
         lblISBM.setText(iSBM);
@@ -48,6 +55,7 @@ public class BookCardFormController {
         image.setImage(new Image(imagePath));
 
         this.status=available;
+        this.lblQty.setText(String.valueOf(qty));
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
@@ -86,8 +94,22 @@ public class BookCardFormController {
                 lblAuthor.getText(),
                 Integer.parseInt(lblGen.getText()),
                 image.getImage().getUrl(),
-                BookStatus.AVAILABLE
+                BookStatus.AVAILABLE,
+                Integer.parseInt(lblQty.getText())
         ));
 
+    }
+    @FXML
+    void btnSelectBookOnAction(MouseEvent event) {
+        IssueBookFormController.getInstance().setBookCardDetails(
+                lblId.getText(),
+                lblTitle.getText(),
+                lblAuthor.getText(),
+                lblISBM.getText(),
+                lblGen.getText(),
+                lblQty.getText(),
+                image.getImage().getUrl()
+
+        );
     }
 }

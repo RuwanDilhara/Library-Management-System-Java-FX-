@@ -137,7 +137,9 @@ public class MemberManagementFormController implements Initializable {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
-
+        memberList.clear();
+        memberList.add(service.searchMemberById(txtSearch.getText()));
+        loadMember(null);
     }
 
     public void comboBoxLoader() {

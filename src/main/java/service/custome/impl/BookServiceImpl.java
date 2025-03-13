@@ -108,6 +108,6 @@ public class BookServiceImpl implements BookService {
                     int distance = levenshtein.apply(userInputAuthor, bookAuthor);
                     return bookAuthor.contains(userInputAuthor) || distance <= 2;
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 }

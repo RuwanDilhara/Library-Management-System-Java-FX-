@@ -160,6 +160,23 @@
                   <Insets left="50.0" right="50.0" />
                </VBox.margin>
             </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="504.0">
+               <children>
+                  <Label prefHeight="18.0" prefWidth="115.0" text="Qty">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtQty" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
             <HBox alignment="CENTER" prefHeight="35.0" prefWidth="504.0">
                <children>
                   <Label prefHeight="42.0" prefWidth="114.0" text="File Choose">

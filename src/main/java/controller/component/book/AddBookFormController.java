@@ -22,6 +22,7 @@ import java.util.List;
 public class AddBookFormController {
 
     final BookService service = new BookServiceImpl();
+    public TextField txtQty;
     private String imagePath;
 
     public TextField txtYear;
@@ -104,7 +105,8 @@ public class AddBookFormController {
                 txtAuthor.getText(),
                 Integer.parseInt(txtYear.getText()),
                 updatedImagePath, // Use the correct image path
-                BookStatus.AVAILABLE
+                BookStatus.AVAILABLE,
+                Integer.parseInt(txtQty.getText())
         ));
 
         System.out.println("Book Updated with Image Path: " + updatedImagePath);

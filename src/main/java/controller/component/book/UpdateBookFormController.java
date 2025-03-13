@@ -47,6 +47,9 @@ public class UpdateBookFormController {
     private Label lblTitle;
 
     @FXML
+    private TextField txtQty;
+
+    @FXML
     private TextField txtISBM;
 
     @FXML
@@ -106,7 +109,8 @@ public class UpdateBookFormController {
                 txtAuthor.getText(),
                 Integer.parseInt(txtYear.getText()),
                 updatedImagePath,
-                isAvailable()
+                isAvailable(),
+                Integer.parseInt(txtQty.getText())
         ));
 
         System.out.println("Book Updated with Image Path: " + updatedImagePath);

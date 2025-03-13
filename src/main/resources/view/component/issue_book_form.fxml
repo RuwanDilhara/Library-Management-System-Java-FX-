@@ -88,7 +88,7 @@
                   </ScrollPane>
                   <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="600.0" prefWidth="399.0" vbarPolicy="ALWAYS">
                      <content>
-                        <VBox alignment="TOP_CENTER" minWidth="350.0" prefHeight="376.0" prefWidth="400.0">
+                        <VBox alignment="TOP_CENTER" minWidth="350.0" prefHeight="594.0" prefWidth="380.0">
                            <children>
                               <Label prefHeight="48.0" prefWidth="349.0" style="-fx-font-size: 18px; -fx-background-color: blue; -fx-font-weight: bold; -fx-padding: 10; -fx-background-radius: 6;" text="Member Details" textFill="WHITE" />
                               <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="335.0" prefWidth="280.0">
@@ -106,27 +106,26 @@
                                                 <DropShadow color="rgba(0, 0, 0, 0.5)" radius="8.0" />
                                              </effect>
                                           </ImageView>
-                                          <Label fx:id="lblID" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblName" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblAddress" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberId" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberName" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberAddress" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
                                           <Label fx:id="lblMemberDate" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblContact" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblEmail1" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
-                                          <Label fx:id="lblEmail2" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberContact" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberEmail" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblMemberGender" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
                               <Label prefHeight="48.0" prefWidth="347.0" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-background-color: green; -fx-padding: 10; -fx-background-radius: 6;" text="Book Details" textFill="WHITE" />
-                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="280.0" stylesheets="@../../css/dashbord.css">
+                              <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="392.0" prefWidth="280.0" stylesheets="@../../css/dashbord.css">
                                  <children>
                                     <VBox alignment="TOP_CENTER" layoutX="10.0" layoutY="10.0" prefHeight="360.0" prefWidth="260.0" style="-fx-background-color: linear-gradient(to bottom, #423B5F, #2D2942); -fx-background-radius: 15; -fx-padding: 15;" styleClass="card" stylesheets="@../../css/dashbord.css">
                                        <effect>
                                           <DropShadow color="rgba(0, 0, 0, 0.4)" radius="10.0" />
                                        </effect>
                                        <children>
-                                          <ImageView fx:id="image" fitHeight="170.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
+                                          <ImageView fx:id="bookImage" fitHeight="170.0" fitWidth="130.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
                                              <image>
                                                 <Image url="@../../img/Book/images.jpeg" />
                                              </image>
@@ -134,31 +133,57 @@
                                                 <DropShadow color="rgba(0, 0, 0, 0.5)" radius="10.0" />
                                              </effect>
                                           </ImageView>
-                                          <Label fx:id="lblId" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="B001" textFill="WHITE" />
-                                          <Label fx:id="lblTitle" alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="The Pragmatic Programmer" textFill="WHITE" />
+                                          <Label fx:id="lblBookId" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
+                                          <Label fx:id="lblBookTitle" alignment="CENTER" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--/--" textFill="WHITE" />
                                           <HBox alignment="CENTER">
                                              <children>
                                                 <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Author:" textFill="WHITE" />
-                                                <Label fx:id="lblAuthor" style="-fx-font-size: 14px;" text="Andrew Hunt" textFill="WHITE" />
+                                                <Label fx:id="lblBookAuthor" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER">
                                              <children>
                                                 <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="Year:" textFill="WHITE" />
-                                                <Label fx:id="lblGen" style="-fx-font-size: 14px;" text="2001" textFill="WHITE" />
+                                                <Label fx:id="lblBookGen" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
                                              </children>
                                           </HBox>
                                           <HBox alignment="CENTER">
                                              <children>
                                                 <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="ISBN:" textFill="WHITE" />
-                                                <Label fx:id="lblISBM" style="-fx-font-size: 14px;" text="5678787" textFill="WHITE" />
+                                                <Label fx:id="lblBookISBM" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
                                              </children>
                                           </HBox>
-                                          <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;" />
+                                          <HBox alignment="CENTER">
+                                             <children>
+                                                <Label style="-fx-font-size: 14px; -fx-font-weight: bold;" text="QTY :" textFill="WHITE" />
+                                                <Label fx:id="lblBookQty" style="-fx-font-size: 14px;" text="--/--" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
                                        </children>
                                     </VBox>
                                  </children>
                               </AnchorPane>
+                              <JFXButton buttonType="RAISED" onAction="#btnDoneOnAction" style="-fx-background-color: #493D9E;" text="Done" textFill="#dad2ff">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                                 <ripplerFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.405921995639801" blue="1.0" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color green="1.0" blue="0.800000011920929" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </ripplerFill>
+                              </JFXButton>
                            </children>
                         </VBox>
                      </content>
@@ -167,28 +192,20 @@
             </HBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="436.0" spacing="20.0" VBox.vgrow="ALWAYS">
                <children>
-                  <JFXButton buttonType="RAISED" style="-fx-background-color: #493D9E;" text="Issue Book" textFill="#dad2ff">
+                  <Label text="Borrow Book Count : " textFill="#213555">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="System Bold" size="20.0" />
                      </font>
-                     <ripplerFill>
-                        <LinearGradient endX="1.0" endY="1.0">
-                           <stops>
-                              <Stop>
-                                 <color>
-                                    <Color red="0.405921995639801" blue="1.0" />
-                                 </color>
-                              </Stop>
-                              <Stop offset="1.0">
-                                 <color>
-                                    <Color green="1.0" blue="0.800000011920929" />
-                                 </color>
-                              </Stop>
-                           </stops>
-                        </LinearGradient>
-                     </ripplerFill>
-                  </JFXButton>
-                  <JFXButton style="-fx-background-color: #B2A5FF;" text="Clear" textFill="#00215e">
+                  </Label>
+                  <Label fx:id="lblBorrowBookCount" text="#" textFill="#cc0909">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font></Label>
+                  <Pane prefHeight="49.0" prefWidth="49.0" HBox.hgrow="ALWAYS" />
+                  <JFXButton style="-fx-background-color: #B2A5FF;" text="Clear All" textFill="#00215e">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -208,7 +225,11 @@
                            </stops>
                         </LinearGradient>
                      </ripplerFill>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
                   </JFXButton>
+                  <Pane prefHeight="49.0" prefWidth="49.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
                   <Insets />

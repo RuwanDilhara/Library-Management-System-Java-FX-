@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.member.MemberCardFormController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.member.MemberCardFormController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
+      <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#btnOnActionSelectMember" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
          <effect>
             <DropShadow color="rgba(0, 0, 0, 0.4)" radius="10.0" />
          </effect>
@@ -43,6 +43,7 @@
 
             <!-- Email -->
             <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="ruwandilhara81@gmail.com" textFill="WHITE" />
+            <Label fx:id="lblGender" style="-fx-font-size: 14px;" text="MALE" textFill="WHITE" />
 
             <!-- Buttons -->
             <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;">

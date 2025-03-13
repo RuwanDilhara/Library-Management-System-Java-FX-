@@ -86,7 +86,7 @@ public class BookManagementFormController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/book_card.fxml"));
             AnchorPane bookCard = loader.load();
             BookCardFormController controller = loader.getController();
-            controller.setBookData(book.getId(), book.getTitle(), book.getIsbn(), book.getAuthor(), book.getYear(), book.getImage(), book.getStatus());
+            controller.setBookData(book.getId(), book.getTitle(), book.getIsbn(), book.getAuthor(), book.getYear(), book.getImage(), book.getStatus(), book.getQty());
             gridPane.add(bookCard, col, row);
         } catch (IOException e) {
             showError("Error loading book card.");

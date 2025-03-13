@@ -18,4 +18,5 @@ public class Book {
     private Integer year;
     private String image;
     private BookStatus status;
+    private Integer qty;
 }

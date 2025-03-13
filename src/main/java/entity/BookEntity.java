@@ -22,6 +22,7 @@ public class BookEntity {
     private String author;
     private Integer year;
     private String image;
+    private Integer qty;
 
     @Enumerated(EnumType.STRING)
     private BookStatus status;

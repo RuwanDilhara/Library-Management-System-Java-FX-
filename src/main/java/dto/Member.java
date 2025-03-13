@@ -21,7 +21,7 @@ public class Member {
     private String contact;
     private LocalDate membershipDate;
     private MemberStatus status;
-    private Integer borrowedBookCount ;
+    private Integer borrowedBookCount =0;
     private MemberGenderType gender;
     private String imageUrl;
 

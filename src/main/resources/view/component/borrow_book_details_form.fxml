@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.borrow_book_details.BorrowBookDetailsFormController">
+   <children>
+      <VBox alignment="CENTER" layoutX="93.6" layoutY="95.19999999999999" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="478.99993286132815" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="226.7999938964844" minHeight="10.0" prefHeight="68.00006713867185" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER" spacing="2.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="14.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="158.0" text="Record ID">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtRecordId" alignment="CENTER" disable="true" maxWidth="400.0" prefHeight="38.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="157.0" text="MemberID" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtMemberId" alignment="CENTER" disable="true" maxWidth="400.0" prefHeight="37.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="140.0" text="Member Name">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtMemberName" alignment="CENTER" disable="true" maxWidth="500.0" prefHeight="37.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="158.0" text="Book Id">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtBookId" alignment="CENTER" disable="true" maxWidth="400.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="157.0" text="Book Title">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtBookTitle" alignment="CENTER" disable="true" maxWidth="400.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="158.0" text="Borrowed Date">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtBorrowedDate" alignment="CENTER" disable="true" maxWidth="400.0" prefWidth="400.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="158.0" text="Return Date">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="iptReturnDate" maxWidth="400.0" prefWidth="400.0" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="91.0" prefWidth="622.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#btnIssueBookOnAction" style="-fx-background-color: #493D9E;" text="Issue Book" textFill="#dad2ff">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.405921995639801" blue="1.0" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color green="1.0" blue="0.800000011920929" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#btnSelectMemberOnAction" style="-fx-background-color: #640D5F;" text="Select Member" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#btnSelectBookOnAction" style="-fx-background-color: #2D336B;" text="Select Book" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton style="-fx-background-color: #B2A5FF;" text="Clear" textFill="#00215e">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <ripplerFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color green="1.0" blue="0.7148902416229248" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.43231579661369324" green="0.0884210541844368" blue="0.8526315689086914" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </ripplerFill>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
