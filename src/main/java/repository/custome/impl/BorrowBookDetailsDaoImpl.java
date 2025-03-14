@@ -1,6 +1,8 @@
 package repository.custome.impl;
 
+import config.HibernateConfig;
 import entity.BorrowBookDetailsEntity;
+import org.hibernate.Session;
 import repository.custome.BorrowBookDetailsDao;
 
 import java.util.List;
@@ -8,7 +10,12 @@ import java.util.List;
 public class BorrowBookDetailsDaoImpl implements BorrowBookDetailsDao {
     @Override
     public boolean save(BorrowBookDetailsEntity entity) {
-        return false;
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        session.persist(entity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override
@@ -28,6 +35,14 @@ public class BorrowBookDetailsDaoImpl implements BorrowBookDetailsDao {
 
     @Override
     public List<BorrowBookDetailsEntity> getAll() {
-        return List.of();
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        List<BorrowBookDetailsEntity> fromBorrowedBookDetailsEntity = session.createQuery("FROM BorrowBookDetailsEntity",BorrowBookDetailsEntity.class).getResultList();
+        session.getTransaction().commit();
+        session.close();
+        fromBorrowedBookDetailsEntity.forEach(e -> {
+            System.out.println(e);
+        });
+        return fromBorrowedBookDetailsEntity;
     }
 }

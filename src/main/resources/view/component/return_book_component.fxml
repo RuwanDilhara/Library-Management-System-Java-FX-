@@ -5,34 +5,48 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="800.0" prefWidth="989.0" style="-fx-background-color: #1E1E2F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
-   <center>
-      <VBox prefHeight="800.0" prefWidth="945.0" spacing="20" style="-fx-padding: 30px; -fx-background-color: #2C2C3E;" BorderPane.alignment="CENTER">
-         <Label style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;" text="Return Books" />
-
-         <HBox spacing="20">
-            <TextField promptText="Enter Book ID or Name" style="-fx-background-color: white; -fx-padding: 10px; -fx-font-size: 14px;" />
-            <Button style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px;" text="Search" />
-         </HBox>
-
-         <TableView prefHeight="400.0" prefWidth="802.0" style="-fx-background-color: white; -fx-border-radius: 10px; -fx-padding: 10px;">
-            <columns>
-               <TableColumn text="Book ID" />
-               <TableColumn text="Title" />
-               <TableColumn text="Member Name" />
-               <TableColumn text="Return Date" />
-               <TableColumn text="Status" />
-            </columns>
-         </TableView>
-
-         <HBox spacing="20">
-            <Button style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Confirm Return" />
-            <Button style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Cancel" />
-         </HBox>
-      </VBox>
-   </center>
-</BorderPane>
+<AnchorPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.ReturnBookComponentController">
+   <children>
+      <BorderPane prefHeight="800.0" prefWidth="989.0" style="-fx-background-color: #1E1E2F;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <VBox prefHeight="800.0" prefWidth="945.0" spacing="20" style="-fx-padding: 30px; -fx-background-color: #2C2C3E;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label style="-fx-text-fill: white; -fx-font-size: 28px; -fx-font-weight: bold;" text="Return Books" />
+                  <HBox spacing="20">
+                     <children>
+                        <TextField promptText="Enter Book ID or Name" style="-fx-background-color: white; -fx-padding: 10px; -fx-font-size: 14px;" />
+                        <Button style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px;" text="Search" />
+                     </children>
+                  </HBox>
+                  <TableView fx:id="tblReturnBookTable" prefHeight="727.0" prefWidth="929.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colRecordID" prefWidth="160.79999005794525" text="Record ID" />
+                        <TableColumn fx:id="colBookId" prefWidth="160.79999005794525" text="Book ID" />
+                        <TableColumn fx:id="colBookName" prefWidth="216.79998779296875" sortType="DESCENDING" text="Book Name" />
+                        <TableColumn fx:id="colMemberId" prefWidth="216.79998779296875" sortType="DESCENDING" text="Member ID" />
+                        <TableColumn fx:id="colMemberName" prefWidth="216.79998779296875" sortType="DESCENDING" text="Member Name" />
+                        <TableColumn fx:id="colBorrowedDate" prefWidth="216.79998779296875" sortType="DESCENDING" text="Boorowed Date" />
+                        <TableColumn fx:id="colReturnDate" prefWidth="216.79998779296875" sortType="DESCENDING" text="Return Date" />
+                     </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+                  <HBox spacing="20">
+                     <children>
+                        <Button style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Confirm Return" />
+                        <Button style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Cancel" />
+                     </children>
+                  </HBox>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

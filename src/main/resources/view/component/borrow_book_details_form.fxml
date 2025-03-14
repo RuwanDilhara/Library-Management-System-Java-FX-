@@ -181,7 +181,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </JFXButton>
-                        <JFXButton style="-fx-background-color: #B2A5FF;" text="Clear" textFill="#00215e">
+                        <JFXButton onAction="#btnClearOnAction" style="-fx-background-color: #B2A5FF;" text="Clear" textFill="#00215e">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>

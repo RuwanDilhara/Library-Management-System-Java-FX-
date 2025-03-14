@@ -5,35 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="add issue book feature">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/component/borrow_book_details/BorrowBookDetailsFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/BorrowBookDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/entity/BorrowBookDetailsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/custome/BorrowBookDetailsDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BorrowBookDetailsDaoImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/custome/BorrowBookDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BorrowBookDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/enums/RecordStatus.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/component/borrow_book_details_form.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ReturnBookTableDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/IssueBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/IssueBookFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/AddBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/AddBookFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/ReturnBookComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/ReturnBookComponentController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookManagementFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/UpdateBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/UpdateBookFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberCardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberCardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberManagementFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberManagementFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/entity/BookEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BookEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/MemberService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/MemberService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/MemberServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/MemberServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/add_book_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/add_book_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/book_update_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/book_update_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/borrow_book_details/BorrowBookDetailsFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/borrow_book_details/BorrowBookDetailsFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/BorrowBookDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/BorrowBookDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/entity/BorrowBookDetailsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BorrowBookDetailsEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BorrowBookDetailsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BorrowBookDetailsDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/BorrowBookDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BorrowBookDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/util/enums/RecordStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/enums/RecordStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/borrow_book_details_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/borrow_book_details_form.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/issue_book_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/issue_book_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/member_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/member_card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/return_book_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/return_book_component.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741802357142</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add issue book feature">
+      <option name="closed" value="true" />
+      <created>1741889807277</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1741889807277</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -1,23 +1,19 @@
-package entity;
+package dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import util.enums.RecordStatus;
 
 import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "BorrowBookDetails")
-public class BorrowBookDetailsEntity {
-    @Id
+@ToString
+public class ReturnBookTableDto {
     private String recordId;
-
     private String memberId;
     private String memberName;
     private String bookId;

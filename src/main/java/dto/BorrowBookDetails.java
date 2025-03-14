@@ -19,7 +19,7 @@ public class BorrowBookDetails {
     private String bookTitle;
     private LocalDate borrowedDate;
     private LocalDate returnDate;
-//    private Integer isReturn;
+    private Boolean isReturn;
     private RecordStatus status;
     private Double fineAmount;
 }

@@ -32,18 +32,3 @@
     -fx-background-color: #2980b9;
 }
 
-/* Table Styling */
-.compact-table {
-    -fx-font-size: 12px;
-}
-
-.compact-table .table-column {
-    -fx-alignment: CENTER;
-}
-
-.section-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #34495e;
-    -fx-padding: 0 0 5 0;
-}

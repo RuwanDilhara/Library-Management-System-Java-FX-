@@ -102,6 +102,7 @@ public class BookCardFormController {
     @FXML
     void btnSelectBookOnAction(MouseEvent event) {
         IssueBookFormController.getInstance().setBookCardDetails(
+
                 lblId.getText(),
                 lblTitle.getText(),
                 lblAuthor.getText(),

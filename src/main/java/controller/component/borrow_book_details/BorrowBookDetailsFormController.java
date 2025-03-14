@@ -66,21 +66,30 @@ public class BorrowBookDetailsFormController {
     @FXML
     private void btnIssueBookOnAction(ActionEvent actionEvent) {
         if (iptReturnDate.getValue() != null) {
-            if (borrowBookCount <= 3) {
-                service.save(new BorrowBookDetails(
-                        txtRecordId.getText(),
-                        txtMemberId.getText(),
-                        txtMemberName.getText(),
-                        txtBookId.getText(),
-                        txtBookTitle.getText(),
-                        LocalDate.now(),
-                        iptReturnDate.getValue(),
-                        RecordStatus.PENDING,
-                        0.00
-                ));
+            if (iptReturnDate.getValue().isAfter(LocalDate.now())) {
+                IssueBookFormController.getInstance().saveBorrowBookDetail(
+                        new BorrowBookDetails(
+                                IssueBookFormController.getInstance().generateId(),
+                                txtMemberId.getText(),
+                                txtMemberName.getText(),
+                                txtBookId.getText(),
+                                txtBookTitle.getText(),
+                                LocalDate.now(),
+                                iptReturnDate.getValue(),
+                                false,
+                                RecordStatus.ACTIVE,
+                                0.00
+                        ));
+            } else {
+                new Alert(Alert.AlertType.WARNING, "Please enter a valid date. !").show();
             }
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Please select a return date for the book !").show();
         }
+    }
+
+    @FXML
+    private void btnClearOnAction(ActionEvent actionEvent) {
+        iptReturnDate.setValue(null);
     }
 }

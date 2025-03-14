@@ -1,11 +1,17 @@
 package service.custome.impl;
 
+import config.HibernateConfig;
 import dto.BorrowBookDetails;
+import entity.BookEntity;
+import entity.BorrowBookDetailsEntity;
+import org.hibernate.Session;
+import org.modelmapper.ModelMapper;
 import repository.custome.BorrowBookDetailsDao;
 import repository.custome.impl.BorrowBookDetailsDaoImpl;
 import service.custome.BorrowBookDetailsService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BorrowBookDetailsServiceImpl implements BorrowBookDetailsService {
 
@@ -13,7 +19,8 @@ public class BorrowBookDetailsServiceImpl implements BorrowBookDetailsService {
 
     @Override
     public boolean save(BorrowBookDetails borrowBookDetails) {
-        return false;
+        return borrowBookDetailsDao.save(new ModelMapper()
+                .map(borrowBookDetails, BorrowBookDetailsEntity.class));
     }
 
     @Override
@@ -33,6 +40,9 @@ public class BorrowBookDetailsServiceImpl implements BorrowBookDetailsService {
 
     @Override
     public List<BorrowBookDetails> getAll() {
-        return List.of();
+        return borrowBookDetailsDao.getAll().stream().map(borrowBookDetailsEntity ->
+            new ModelMapper().map(borrowBookDetailsEntity,BorrowBookDetails.class))
+                .collect(Collectors.toList());
+
     }
 }

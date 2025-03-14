@@ -4,6 +4,7 @@ import controller.component.book.BookCardFormController;
 import controller.component.borrow_book_details.BorrowBookDetailsFormController;
 import controller.component.member.MemberCardFormController;
 import dto.Book;
+import dto.BorrowBookDetails;
 import dto.Member;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,8 +18,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import service.custome.BookService;
+import service.custome.BorrowBookDetailsService;
 import service.custome.MemberService;
 import service.custome.impl.BookServiceImpl;
+import service.custome.impl.BorrowBookDetailsServiceImpl;
 import service.custome.impl.MemberServiceImpl;
 import util.enums.BookStatus;
 import util.enums.MemberStatus;
@@ -27,6 +30,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class IssueBookFormController implements Initializable {
@@ -43,6 +47,7 @@ public class IssueBookFormController implements Initializable {
 
     MemberService memberService = new MemberServiceImpl();
     BookService bookService = new BookServiceImpl();
+    BorrowBookDetailsService borrowBookDetailsService = new BorrowBookDetailsServiceImpl();
 
     List<Member> memberList = memberService.getAll();
     List<Book> bookList = bookService.getAll();
@@ -110,6 +115,10 @@ public class IssueBookFormController implements Initializable {
     @FXML
     private Label lblBookQty;
 
+    private String recordId;
+
+    private LocalDate isReturnDate;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -120,10 +129,14 @@ public class IssueBookFormController implements Initializable {
     }
 
     @FXML
-    void btnReloadOnAction(ActionEvent event) {
+    void btnReloadOnAction() {
         memberList = memberService.getAll();
         bookList = bookService.getAll();
-        cardLoader();
+        clearMemberCardDetails();
+        clearBookCardDetails();
+        loadBook();
+        loadMember();
+        lblBorrowBookCount.setText("#");
     }
 
     @FXML
@@ -287,26 +300,31 @@ public class IssueBookFormController implements Initializable {
         if (!lblBookId.getText().equals("--/--") && !lblMemberId.getText().equals("--/--")) {
             gridPane.getChildren().clear();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/borrow_book_details_form.fxml"));
-            try {
-                Parent root = loader.load();
 
-                BorrowBookDetailsFormController controller = loader.getController();
+            if(Integer.parseInt(lblBorrowBookCount.getText())<3){
+                try {
+                    Parent root = loader.load();
 
-                controller.setBorrowBookDetails(
-                        "R001",
-                        lblMemberId.getText(),
-                        lblMemberName.getText(),
-                        lblBookId.getText(),
-                        lblBookTitle.getText(),
-                        LocalDate.now(),
-                        Integer.parseInt(lblBorrowBookCount.getText())
-                );
+                    BorrowBookDetailsFormController controller = loader.getController();
 
-                gridPane.getChildren().add(root);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+                    controller.setBorrowBookDetails(
+                            generateId(),
+                            lblMemberId.getText(),
+                            lblMemberName.getText(),
+                            lblBookId.getText(),
+                            lblBookTitle.getText(),
+                            LocalDate.now(),
+                            Integer.parseInt(lblBorrowBookCount.getText())
+                    );
+
+                    gridPane.getChildren().add(root);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }else {
+                new Alert(Alert.AlertType.INFORMATION,"Please return borrowed books before borrowing a new one !").show();
+                loadMember();
             }
-
 
         } else {
             new Alert(Alert.AlertType.INFORMATION, "Please select member & book").show();
@@ -329,5 +347,57 @@ public class IssueBookFormController implements Initializable {
         lblMemberEmail.setText("--/--");
         lblMemberDate.setText("--/--");
         lblMemberName.setText("--/--");
+    }
+
+    public boolean updateBookQty(String bookId){
+        Book result = bookService.getAll().stream().filter(book ->
+                book.getId().equals(bookId)).findFirst().orElse(null);
+        if (result != null){
+            result.setQty(result.getQty()-1);
+            if (result.getQty()<=0){
+                result.setStatus(BookStatus.UNAVAILABLE);
+            }
+            return bookService.updateBook(result);
+        }
+        return false;
+    }
+    public boolean updateMemberBorrowedBooksCount(String memberId){
+        Member result = memberService.getAll().stream().filter(member ->
+                member.getId().equals(memberId)).findFirst().orElse(null);
+        if (result != null){
+            result.setBorrowedBookCount(result.getBorrowedBookCount()+1);
+            return memberService.updateMember(result);
+        }
+        return false;
+    }
+    public String generateId(){
+        if (!borrowBookDetailsService.getAll().isEmpty()){
+            String newId;
+            int lastNumber = Integer.parseInt(borrowBookDetailsService.getAll().getLast()
+                    .getRecordId()
+                    .substring(1));
+            newId= "R"+String.format("%03d", lastNumber + 1);
+            System.out.println(lastNumber);
+            return newId;
+        }else {
+            return "R001";
+        }
+    }
+    public void saveBorrowBookDetail(BorrowBookDetails borrowBookDetails){
+        boolean isSaved = borrowBookDetailsService.save(borrowBookDetails);
+        if (isSaved){
+            boolean isUpdatedMember = updateMemberBorrowedBooksCount(borrowBookDetails.getMemberId());
+            boolean isUpdatedBook = updateBookQty(borrowBookDetails.getBookId());
+
+            if (isUpdatedBook && isUpdatedMember){
+                new Alert(Alert.AlertType.INFORMATION,"The book was successfully issued !").show();
+            }
+        }
+        btnReloadOnAction();
+    }
+
+    @FXML
+    private void btnClearAllOnAction(ActionEvent actionEvent) {
+        btnReloadOnAction();
     }
 }
