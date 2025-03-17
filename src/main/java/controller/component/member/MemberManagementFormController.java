@@ -93,7 +93,7 @@ public class MemberManagementFormController implements Initializable {
                     member.getEmail(),
                     member.getStatus(),
                     member.getBorrowedBookCount(),
-                    MemberGenderType.OTHER,
+                    member.getGender(),
                     member.getImageUrl());
 
             gridPane.add(memberCard, col, raw);

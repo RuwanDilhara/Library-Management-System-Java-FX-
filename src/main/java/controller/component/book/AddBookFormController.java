@@ -3,6 +3,8 @@ package controller.component.book;
 import dto.Book;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -15,14 +17,18 @@ import util.enums.BookStatus;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class AddBookFormController {
+public class AddBookFormController implements Initializable {
 
     final BookService service = new BookServiceImpl();
-    public TextField txtQty;
+
+    @FXML
+    private TextField txtQty;
     private String imagePath;
 
     public TextField txtYear;
@@ -48,6 +54,11 @@ public class AddBookFormController {
 
     @FXML
     private TextField txtISBM;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        generateId();
+    }
 
     @FXML
     void btnCancelOnAction(ActionEvent event) {
@@ -98,8 +109,8 @@ public class AddBookFormController {
     void btnAddOnAction(ActionEvent event) {
         String updatedImagePath = (imagePath != null) ? imagePath : "img/Book/images.jpeg"; // Use selected or default image
 
-        service.addBook(new Book(
-                generateId(),
+        boolean bookSaved = service.addBook(new Book(
+                txtID.getText(),
                 txtTitle.getText(),
                 txtISBM.getText(),
                 txtAuthor.getText(),
@@ -108,29 +119,13 @@ public class AddBookFormController {
                 BookStatus.AVAILABLE,
                 Integer.parseInt(txtQty.getText())
         ));
+        new Alert(Alert.AlertType.INFORMATION,bookSaved?"Book saved !":"Book not saved !").show();
 
         System.out.println("Book Updated with Image Path: " + updatedImagePath);
     }
 
-//    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath) {
-//        this.txtID.setText(id);
-//        this.txtTitle.setText(title);
-//        this.txtISBM.setText(iSBM);
-//        this.txtAuthor.setText(author);
-//        this.txtYear.setText(year.toString());
-//
-//        this.lblId.setText(id);
-//        this.lblTitle.setText(title);
-//        this.lblAuthor.setText(author);
-//        this.lblGen.setText(year.toString());
-//        this.lblISBM.setText(iSBM);
-//
-//        this.imagePath = imgPath; // Store the existing image path
-//        image.setImage(new Image(imgPath)); // Load the existing image
-//    }
-
-    public String generateId(){
-        String newId;
+    public void generateId(){
+        String newId = "B001";
         if (!service.getAll().isEmpty()){
             String lastNumber = service.getAll()
                     .getLast()
@@ -140,12 +135,9 @@ public class AddBookFormController {
             System.out.println(service.getAll().getLast());
 
             newId = "B" + String.format("%03d", Integer.parseInt(lastNumber) + 1);
-            lblId.setText(newId);
-            txtID.setText(newId);
-            return newId;
-        }else {
-            return "B001";
-        }
 
+        }
+        lblId.setText(newId);
+        txtID.setText(newId);
     }
 }

@@ -120,12 +120,13 @@ public class UpdateBookFormController {
         return tglAvailability.isSelected()?
                 BookStatus.UNAVAILABLE:BookStatus.AVAILABLE;
     }
-    public void setData(String id, String title, String author, Integer year, String iSBM, String imgPath,BookStatus status) {
+    public void setData(String id, String title, String author, Integer year, String iSBM,String qty, String imgPath,BookStatus status) {
         this.txtID.setText(id);
         this.txtTitle.setText(title);
         this.txtISBM.setText(iSBM);
         this.txtAuthor.setText(author);
         this.txtYear.setText(year.toString());
+        txtQty.setText(qty);
 
         tglAvailability.setSelected(status != BookStatus.AVAILABLE);
 

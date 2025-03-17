@@ -25,7 +25,7 @@
                               <URL value="@../../css/dashbord.css" />
                               <URL value="@../../css/dashboard.css" />
                            </stylesheets></TextField>
-                        <Button style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px;" text="Search" />
+                        <Button style="-fx-background-color: #3498DB; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2);" text="Search" />
                      </children>
                   </HBox>
                   <TableView fx:id="tblReturnBookTable" prefHeight="727.0" prefWidth="929.0" VBox.vgrow="ALWAYS">
@@ -36,7 +36,7 @@
                         <TableColumn fx:id="colBookTitle" prefWidth="216.79998779296875" sortType="DESCENDING" text="Book Name" />
                         <TableColumn fx:id="colMemberId" prefWidth="216.79998779296875" sortType="DESCENDING" text="Member ID" />
                         <TableColumn fx:id="colMemberName" prefWidth="216.79998779296875" sortType="DESCENDING" text="Member Name" />
-                        <TableColumn fx:id="colBorrowedDate" prefWidth="216.79998779296875" sortType="DESCENDING" text="Boorowed Date" />
+                        <TableColumn fx:id="colBorrowedDate" prefWidth="216.79998779296875" sortType="DESCENDING" text="Borrowed Date" />
                         <TableColumn fx:id="colReturnDate" prefWidth="216.79998779296875" sortType="DESCENDING" text="Return Date" />
                         <TableColumn fx:id="colFineAmount" prefWidth="216.79998779296875" sortType="DESCENDING" text="Fine Amount" />
                      </columns>
@@ -46,8 +46,8 @@
                   </TableView>
                   <HBox spacing="20">
                      <children>
-                        <Button style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Confirm Return" />
-                        <Button style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" text="Cancel" />
+                        <Button onAction="#btnConfirmReturnOnAction" style="-fx-background-color: #27AE60; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2);" text="Confirm Return" />
+                        <Button onAction="#btnCancelOnAction" style="-fx-background-color: #E74C3C; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px; -fx-border-radius: 5px; -fx-background-radius: 5px; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0.5, 0, 2);" text="Cancel" />
                      </children>
                   </HBox>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" />

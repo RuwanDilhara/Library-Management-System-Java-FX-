@@ -71,6 +71,7 @@ public class BookCardFormController {
                     lblAuthor.getText(),
                     Integer.parseInt(lblGen.getText()),
                     lblISBM.getText(),
+                    lblQty.getText(),
                     image.getImage().getUrl(),
                     status
             );
