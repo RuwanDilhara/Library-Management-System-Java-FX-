@@ -25,7 +25,8 @@ public class BorrowBookDetailsServiceImpl implements BorrowBookDetailsService {
 
     @Override
     public boolean update(BorrowBookDetails borrowBookDetails) {
-        return false;
+        return borrowBookDetailsDao.update(new ModelMapper()
+                .map(borrowBookDetails,BorrowBookDetailsEntity.class));
     }
 
     @Override

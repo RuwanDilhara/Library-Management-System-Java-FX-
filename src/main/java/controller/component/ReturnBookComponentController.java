@@ -1,10 +1,12 @@
 package controller.component;
 
+import com.jfoenix.controls.JFXButton;
 import dto.ReturnBookTableDto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableView;
 
 import java.net.URL;
@@ -13,12 +15,17 @@ import java.util.ResourceBundle;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
+import service.custome.BorrowBookDetailsService;
+import service.custome.impl.BorrowBookDetailsServiceImpl;
 import util.enums.RecordStatus;
 
 
 public class ReturnBookComponentController implements Initializable {
     @FXML
-    private TableColumn<?, ?> colBookName;
+    private TableColumn<?, ?> colBookTitle;
+
+    @FXML
+    private TableColumn<?, ?> colAction;
 
     @FXML
     private TableColumn<?, ?> colBookId;
@@ -39,27 +46,52 @@ public class ReturnBookComponentController implements Initializable {
     private TableColumn<?, ?> colReturnDate;
 
     @FXML
+    private TableColumn<?, ?> colFineAmount;
+
+    @FXML
+    private TableColumn<?, ?> colSelect;
+
+    @FXML
     private TableView tblReturnBookTable;
+
+    BorrowBookDetailsService borrowBookDetailsService = new BorrowBookDetailsServiceImpl();
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadTable();
         colRecordID.setCellValueFactory(new PropertyValueFactory<>("recordId"));
+        colBookId.setCellValueFactory(new PropertyValueFactory<>("bookId"));
+        colBookTitle.setCellValueFactory(new PropertyValueFactory<>("bookTitle"));
+        colMemberId.setCellValueFactory(new PropertyValueFactory<>("memberId"));
+        colMemberName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+        colBorrowedDate.setCellValueFactory(new PropertyValueFactory<>("borrowedDate"));
+        colReturnDate.setCellValueFactory(new PropertyValueFactory<>("returnDate"));
+        colFineAmount.setCellValueFactory(new PropertyValueFactory<>("fineAmount"));
+        colSelect.setCellValueFactory(new PropertyValueFactory<>("checkBox"));
     }
-    public void loadTable(){
+
+    public void loadTable() {
         ObservableList<ReturnBookTableDto> objectObservableList = FXCollections.observableArrayList();
-        objectObservableList.add(new ReturnBookTableDto(
-                "R001",
-                "M123",
-                "John Doe",
-                "B456",
-                "Java Programming",
-                LocalDate.of(2024, 3, 10),
-                LocalDate.of(2024, 3, 20),
-                false,
-                RecordStatus.ACTIVE,
-                0.0
-        ));
+
+        borrowBookDetailsService.getAll().forEach(borrowBookDetails -> {
+           if (borrowBookDetails.getStatus().equals(RecordStatus.PAID)){
+               objectObservableList.add(
+                       new ReturnBookTableDto(
+                               new CheckBox(),
+                               borrowBookDetails.getRecordId(),
+                               borrowBookDetails.getMemberId(),
+                               borrowBookDetails.getMemberName(),
+                               borrowBookDetails.getBookId(),
+                               borrowBookDetails.getBookTitle(),
+                               borrowBookDetails.getBorrowedDate(),
+                               borrowBookDetails.getReturnDate(),
+                               borrowBookDetails.getStatus(),
+                               borrowBookDetails.getFineAmount()
+                       )
+               );
+           }
+        });
         tblReturnBookTable.setItems(objectObservableList);
 
     }

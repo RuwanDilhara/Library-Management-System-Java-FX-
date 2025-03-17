@@ -2,6 +2,7 @@ package config;
 
 import entity.BookEntity;
 import entity.BorrowBookDetailsEntity;
+import entity.FineEntity;
 import entity.MemberEntity;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -22,6 +23,7 @@ public class HibernateConfig {
                 .addAnnotatedClass(BookEntity.class)
                 .addAnnotatedClass(MemberEntity.class)
                 .addAnnotatedClass(BorrowBookDetailsEntity.class)
+                .addAnnotatedClass(FineEntity.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build();

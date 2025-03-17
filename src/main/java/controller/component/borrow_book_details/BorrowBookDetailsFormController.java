@@ -76,7 +76,6 @@ public class BorrowBookDetailsFormController {
                                 txtBookTitle.getText(),
                                 LocalDate.now(),
                                 iptReturnDate.getValue(),
-                                false,
                                 RecordStatus.ACTIVE,
                                 0.00
                         ));

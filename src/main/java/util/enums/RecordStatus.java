@@ -1,5 +1,5 @@
 package util.enums;
 
 public enum RecordStatus {
-    ACTIVE,OVERDUE,RETURN
+    ACTIVE,OVERDUE,RETURN,PAID
 }

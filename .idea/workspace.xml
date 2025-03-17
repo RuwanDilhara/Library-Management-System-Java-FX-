@@ -4,22 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="add issue book feature">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dto/ReturnBookTableDto.java" afterDir="false" />
+    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="completed issue book feature">
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/component/FineManagementController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/Fine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dto/FineManagementTableDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/entity/FineEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/custome/FineDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/FineDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/custome/FineService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/FineServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/IssueBookFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/IssueBookFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/config/HibernateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/FineManagementComponentController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/ReturnBookComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/ReturnBookComponentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/book/BookCardFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/borrow_book_details/BorrowBookDetailsFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/borrow_book_details/BorrowBookDetailsFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dto/BorrowBookDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/BorrowBookDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dto/ReturnBookTableDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/ReturnBookTableDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/entity/BorrowBookDetailsEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/entity/BorrowBookDetailsEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BorrowBookDetailsDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repository/custome/impl/BorrowBookDetailsDaoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/custome/impl/BorrowBookDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/custome/impl/BorrowBookDetailsServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/util/enums/RecordStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/util/enums/RecordStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/dashbord.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/borrow_book_details_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/borrow_book_details_form.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/issue_book_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/issue_book_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/fine_management_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/fine_management_component.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/return_book_component.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/return_book_component.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,6 +95,9 @@
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="dto" />
     </key>
   </component>
   <component name="RunManager">
@@ -210,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741889807277</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="completed issue book feature">
+      <option name="closed" value="true" />
+      <created>1741964824892</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1741964824892</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -224,7 +241,8 @@
     <MESSAGE value="complete the Book Management part" />
     <MESSAGE value="add new feature" />
     <MESSAGE value="add issue book feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="add issue book feature" />
+    <MESSAGE value="completed issue book feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="completed issue book feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

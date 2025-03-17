@@ -20,7 +20,12 @@ public class BorrowBookDetailsDaoImpl implements BorrowBookDetailsDao {
 
     @Override
     public boolean update(BorrowBookDetailsEntity entity) {
-        return false;
+        Session session = HibernateConfig.getSession();
+        session.beginTransaction();
+        session.merge(entity);
+        session.getTransaction().commit();
+        session.close();
+        return true;
     }
 
     @Override

@@ -1,5 +1,8 @@
 package dto;
 
+import com.jfoenix.controls.JFXButton;
+import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @ToString
 public class ReturnBookTableDto {
+    private CheckBox checkBox;
     private String recordId;
     private String memberId;
     private String memberName;
@@ -20,7 +24,7 @@ public class ReturnBookTableDto {
     private String bookTitle;
     private LocalDate borrowedDate;
     private LocalDate returnDate;
-    private Boolean isReturn;
     private RecordStatus status;
     private Double fineAmount;
+
 }

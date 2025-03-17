@@ -207,7 +207,6 @@
 .button {
     -fx-background-color: #1e88e5;
     -fx-text-fill: white;
-    -fx-font-weight: bold;
     -fx-background-radius: 5px;
     -fx-padding: 5px 10px;
     -fx-cursor: hand;
@@ -222,3 +221,29 @@
     -fx-background-color: #0d47a1;
     -fx-effect: innershadow(three-pass-box, rgba(0, 0, 0, 0.5), 5, 0, 0, 3);
 }
+.text-field {
+    -fx-padding: 5px;
+}
+.custom-textfield {
+    -fx-background-color: transparent;
+    -fx-border-color: #6200ea;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: rgba(255, 255, 255, 0.6);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.custom-textfield:focused {
+    -fx-border-color: #bb86fc;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-effect: dropshadow(gaussian, rgba(187, 134, 252, 0.6), 10, 0.5, 0, 0);
+}
+
+.custom-textfield:hover {
+    -fx-border-color: #bb86fc;
+    -fx-scale-y: 1.05;
+}
+

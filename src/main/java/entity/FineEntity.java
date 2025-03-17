@@ -6,24 +6,21 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import util.enums.RecordStatus;
+import lombok.ToString;
 
 import java.time.LocalDate;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Entity
-@Table(name = "BorrowBookDetails")
-public class BorrowBookDetailsEntity {
+@Table(name = "Fines")
+public class FineEntity {
     @Id
-    private String recordId;
-
+    private String fineId;
+    private String borrowRecordId;
     private String memberId;
     private String memberName;
-    private String bookId;
-    private String bookTitle;
-    private LocalDate borrowedDate;
-    private LocalDate returnDate;
-    private RecordStatus status;
-    private Double fineAmount;
+    private LocalDate paymentDate;
+    private Double amount;
 }
