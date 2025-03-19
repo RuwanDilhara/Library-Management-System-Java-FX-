@@ -155,7 +155,7 @@ public class FineManagementController implements Initializable {
         List<Fine> allFines = fineService.getAll();
 
         borrowBookDetailsService.getAll().forEach(borrowBookDetails -> {
-            if (borrowBookDetails.getStatus().equals(RecordStatus.OVERDUE)) {
+            if (borrowBookDetails.getStatus().equals(RecordStatus.ACTIVE)) {
                 Integer overDueDateCount = overDueDateCalculation(borrowBookDetails.getReturnDate());
                 double totalFineAmount = overDueDateCount * 10.00;
 

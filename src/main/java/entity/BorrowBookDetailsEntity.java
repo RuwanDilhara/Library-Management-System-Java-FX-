@@ -1,8 +1,6 @@
 package entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +22,9 @@ public class BorrowBookDetailsEntity {
     private String bookTitle;
     private LocalDate borrowedDate;
     private LocalDate returnDate;
+
+    @Enumerated(EnumType.STRING)
     private RecordStatus status;
+
     private Double fineAmount;
 }

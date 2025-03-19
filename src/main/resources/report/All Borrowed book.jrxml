@@ -1,0 +1,151 @@
+<!-- Created with Jaspersoft Studio version 7.0.2.final using JasperReports Library version 7.0.2-31532122640f516c6d17238ae0e41a08113d5ac0  -->
+<jasperReport name="Blank_A4_3" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8462c21e-88c4-42b1-8b8b-5dd7b7016a17">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="Ym9ycm93Ym9va2RldGFpbHMgLDE1LDE1LGNlMTk4ZmM2LWMwNWUtNGY3Yi05YzBlLWUxNTRjMmVh&#xa;NmYyZTs="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Library_Management_database"/>
+	<query language="SQL"><![CDATA[SELECT *
+FROM borrowbookdetails WHERE status = "ACTIVE"]]></query>
+	<field name="recordId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="recordId"/>
+		<property name="com.jaspersoft.studio.field.label" value="recordId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="bookId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bookId"/>
+		<property name="com.jaspersoft.studio.field.label" value="bookId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="bookTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="bookTitle"/>
+		<property name="com.jaspersoft.studio.field.label" value="bookTitle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="borrowedDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="borrowedDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="borrowedDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="fineAmount" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="fineAmount"/>
+		<property name="com.jaspersoft.studio.field.label" value="fineAmount"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="isReturn" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.name" value="isReturn"/>
+		<property name="com.jaspersoft.studio.field.label" value="isReturn"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="memberId" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="memberId"/>
+		<property name="com.jaspersoft.studio.field.label" value="memberId"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="memberName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="memberName"/>
+		<property name="com.jaspersoft.studio.field.label" value="memberName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="returnDate" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="returnDate"/>
+		<property name="com.jaspersoft.studio.field.label" value="returnDate"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<field name="status" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="status"/>
+		<property name="com.jaspersoft.studio.field.label" value="status"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="borrowbookdetails"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="34" splitType="Stretch">
+		<element kind="staticText" uuid="96619b74-238a-4ab8-83c0-22b7e227509a" x="100" y="-4" width="356" height="34" fontSize="21.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Library Management System 2025 ]]></text>
+		</element>
+	</title>
+	<pageHeader height="35" splitType="Stretch">
+		<element kind="staticText" uuid="77b00031-8194-4cd3-a12d-8711bf77a128" mode="Opaque" x="-9" y="-2" width="572" height="28" forecolor="#FFFFFF" backcolor="#1C9DD9" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[All Borrowed Book]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="44" splitType="Stretch">
+		<element kind="staticText" uuid="c42421ae-77f8-47f0-81e9-987ec54fc194" mode="Transparent" x="-2" y="1" width="70" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Record ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3ecf175-eb24-461a-93f1-3231f2e8a5ea"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="e373d38c-deba-455c-b5b6-208007f16021" mode="Transparent" x="68" y="1" width="70" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Book ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72c034ca-0e53-4713-8d04-6bd21df0f1b8"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="80ae6ccc-5537-4798-a112-98b1463994a4" mode="Transparent" x="138" y="1" width="100" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Book Title]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81f1919e-c0f5-447e-a077-7d3d7d25c731"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="96a6078b-2dc4-45e3-93dc-5bd3c45897f0" mode="Transparent" x="238" y="1" width="64" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Member ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e199aab-2bb6-4600-bd57-2755ca64ebce"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="aad859ec-38d1-4087-9a26-51441252a516" mode="Transparent" x="302" y="1" width="87" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Member Name]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d1301f0-8af4-4b10-9b95-17831fcd354a"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="9a4ec62e-4677-42df-8eec-441e386fdaf3" mode="Transparent" x="389" y="1" width="101" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Return Date]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="675fda11-0c3d-4537-b68b-e63129e14844"/>
+			<box leftPadding="1"/>
+		</element>
+		<element kind="staticText" uuid="c6e2ffac-35a4-4ca1-bb13-dcfa15676ef8" mode="Transparent" x="490" y="1" width="65" height="43" forecolor="#D10A06" backcolor="#261C1C" fontSize="14.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Fine Amount]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b92c5be4-8fe3-4e2e-bcae-c94f651a593e"/>
+			<box leftPadding="1"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="35" splitType="Stretch">
+			<element kind="textField" uuid="775d12c5-4a9b-4c7f-afc1-bf7fadce12fa" mode="Transparent" x="-2" y="2" width="70" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{recordId}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e3ecf175-eb24-461a-93f1-3231f2e8a5ea"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="1d5e3d3a-3f87-4fc1-972f-e67e67ecb934" mode="Transparent" x="68" y="2" width="70" height="30">
+				<expression><![CDATA[$F{bookId}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="72c034ca-0e53-4713-8d04-6bd21df0f1b8"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="c0730136-b873-4add-b963-cfdbcb545428" mode="Transparent" x="138" y="2" width="100" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{bookTitle}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81f1919e-c0f5-447e-a077-7d3d7d25c731"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="8dd71a05-7f78-4901-9227-d83e2927475d" mode="Transparent" x="228" y="2" width="74" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{memberId}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4e199aab-2bb6-4600-bd57-2755ca64ebce"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="07a44ad6-3f83-4a29-b394-8bc8801b1cb9" mode="Transparent" x="302" y="2" width="100" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{memberName}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3d1301f0-8af4-4b10-9b95-17831fcd354a"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="2827ce66-04e6-4d6c-bb1c-b5b99132e850" mode="Transparent" x="402" y="2" width="88" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{returnDate}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="675fda11-0c3d-4537-b68b-e63129e14844"/>
+				<box leftPadding="1"/>
+			</element>
+			<element kind="textField" uuid="a11b0fc9-9c3c-4335-a3dd-76031c1a0383" mode="Transparent" x="490" y="0" width="63" height="30" hTextAlign="Center">
+				<expression><![CDATA[$F{fineAmount}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b92c5be4-8fe3-4e2e-bcae-c94f651a593e"/>
+				<box leftPadding="1"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="33" splitType="Stretch">
+		<element kind="staticText" uuid="2d4a587a-c12c-4596-90ca-61ed6f19fe3a" x="240" y="0" width="100" height="30" fontSize="16.0" bold="true" hTextAlign="Center">
+			<text><![CDATA[Thank You !]]></text>
+		</element>
+	</pageFooter>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
