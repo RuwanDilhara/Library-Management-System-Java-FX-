@@ -1,69 +1,168 @@
 package controller.component.member;
 
+import dto.Member;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import org.checkerframework.checker.units.qual.A;
+import service.custome.MemberService;
+import service.custome.impl.MemberServiceImpl;
+import util.enums.MemberGenderType;
+import util.enums.MemberStatus;
 
-public class AddMemberFormController {
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.time.LocalDate;
+import java.util.ResourceBundle;
+
+public class AddMemberFormController implements Initializable {
+
+    @FXML
+    private ComboBox<String> cmbGenderType;
 
     @FXML
     private ImageView image;
 
     @FXML
-    private Label lblAuthor;
+    private Label lblAddress;
 
     @FXML
-    private Label lblGen;
+    private Label lblContact;
 
     @FXML
-    private Label lblISBM;
+    private Label lblEmail;
 
     @FXML
-    private Label lblId;
+    private Label lblID;
 
     @FXML
-    private Label lblTitle;
+    private Label lblMemberDate;
 
     @FXML
-    private TextField txtAuthor;
+    private Label lblName;
+
+    @FXML
+    private TextField txtAddress;
+
+    @FXML
+    private TextField txtContact;
+
+    @FXML
+    private TextField txtEmail;
+
+    @FXML
+    private TextField txtGender;
 
     @FXML
     private TextField txtID;
 
     @FXML
-    private TextField txtISBM;
+    private TextField txtName;
 
-    @FXML
-    private TextField txtTitle;
+    String imagePath;
 
-    @FXML
-    private TextField txtYear;
+    private MemberService service = new MemberServiceImpl();
 
-    @FXML
-    void btnAddOnAction(ActionEvent event) {
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        generateId();
+        comboBoxLoader();
+    }
+    private void comboBoxLoader(){
+        ObservableList<String> genderTypeObservableList = FXCollections.observableArrayList();
+        genderTypeObservableList.add("MALE");
+        genderTypeObservableList.add("FEMALE");
+        genderTypeObservableList.add("OTHER");
+        cmbGenderType.setValue("MALE");
+        cmbGenderType.setItems(genderTypeObservableList);
+    }
 
+    private boolean isTextFieldValidate() {
+        if (
+                !txtID.getText().isEmpty() &&
+                        !txtName.getText().isEmpty() &&
+                        !txtAddress.getText().isEmpty() &&
+                        !txtContact.getText().isEmpty() &&
+                        !txtID.getText().isEmpty() &&
+                        !txtEmail.getText().isEmpty() &&
+                        !cmbGenderType.getValue().isEmpty()
+        ) {
+            return true;
+        }
+        new Alert(Alert.AlertType.INFORMATION,"Please Fill all Member Details !").show();
+        return false;
     }
 
     @FXML
-    void btnCancelOnAction(ActionEvent event) {
+    void btnAddOnAction(ActionEvent event) {
+        if (isTextFieldValidate()){
+            boolean isSave = service.addMember(new Member(
+                    txtID.getText(),
+                    txtName.getText(),
+                    txtAddress.getText(),
+                    txtEmail.getText(),
+                    txtContact.getText(),
+                    LocalDate.now(),
+                    MemberStatus.ACTIVE,
+                    0,
+                    isMemberType(),
+                    imagePath
 
+            ));
+            if(isSave){
+                new Alert(Alert.AlertType.INFORMATION,"Member Added Successfully").show();
+            }
+        }
+    }
+    public MemberGenderType  isMemberType(){
+        if (cmbGenderType.getValue().equals(MemberGenderType.MALE.toString())){
+            return MemberGenderType.MALE;
+        } else if (cmbGenderType.getValue().equals(MemberGenderType.FEMALE.toString())){
+            return MemberGenderType.FEMALE;
+        } else {
+            return MemberGenderType.OTHER;
+        }
+    }
+
+    @FXML
+    void btnClearOnAction(ActionEvent event) {
+        txtID.clear();
+        txtName.clear();
+        txtAddress.clear();
+        txtEmail.clear();
+        txtContact.clear();
     }
 
     @FXML
     void btnPreviewOnAction(ActionEvent event) {
-
+        if (isTextFieldValidate()){
+            lblID.setText(txtID.getText());
+            lblName.setText(txtName.getText());
+            lblEmail.setText(txtEmail.getText());
+            lblMemberDate.setText(LocalDate.now().toString());
+            lblContact.setText(txtContact.getText());
+            lblAddress.setText(txtAddress.getText());
+        }
     }
 
-    @FXML
-    void btnSelectOnAction(ActionEvent event) {
+    private void generateId() {
+        String newID = "M1001";
+        if (!service.getAll().isEmpty()) {
+            String lastNumber = service.getAll().getLast().getId().substring(1);
+            newID = "M" + String.format("%03d", Integer.parseInt(lastNumber) + 1);
 
-    }
-
-    public void bynDeleteOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
+        }
+        lblID.setText(newID);
+        txtID.setText(newID);
     }
 }

@@ -5,9 +5,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import util.enums.MemberGenderType;
 import util.enums.MemberStatus;
 
@@ -45,7 +47,29 @@ public class MemberCardFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/member_update_form.fxml"));
+        try {
+            Parent root = loader.load();
+            UpdateMemberFormController controller = loader.getController();
 
+            controller.setDataToMemberCard(
+                    lblID.getText(),
+                    lblName.getText(),
+                    lblAddress.getText(),
+                    lblMemberDate.getText(),
+                    lblContact.getText(),
+                    lblEmail.getText(),
+                    lblGender.getText()
+            );
+
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Update Member");
+            stage.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML

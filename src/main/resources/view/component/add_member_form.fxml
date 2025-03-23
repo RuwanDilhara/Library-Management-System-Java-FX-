@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -15,244 +16,174 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.member.AddMemberFormController">
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.component.member.AddMemberFormController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutX="60.8" layoutY="61.599999999999994" prefHeight="486.0" prefWidth="695.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="-39.0" AnchorPane.topAnchor="31.0">
+      <VBox alignment="TOP_CENTER" layoutX="-83.19999999999999" layoutY="7.199999999999999" prefHeight="614.0" prefWidth="1030.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label alignment="CENTER" contentDisplay="TOP" prefHeight="45.0" prefWidth="646.0" text="Add Member">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
-               <graphic>
-                  <GridPane alignment="CENTER" prefHeight="501.0" prefWidth="881.0">
-                    <columnConstraints>
-                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-                      <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
-                    </columnConstraints>
-                    <rowConstraints>
-                      <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="478.99993286132815" valignment="CENTER" vgrow="ALWAYS" />
-                        <RowConstraints maxHeight="226.7999938964844" minHeight="10.0" prefHeight="68.00006713867185" vgrow="SOMETIMES" />
-                    </rowConstraints>
+            </Label>
+            <GridPane alignment="CENTER" prefHeight="502.0" prefWidth="946.0">
+              <columnConstraints>
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+                <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="478.99993286132815" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="226.7999938964844" minHeight="10.0" prefHeight="68.00006713867185" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="280.0" GridPane.columnIndex="1">
                      <children>
-                        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="280.0" GridPane.columnIndex="1">
+                        <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
+                           <effect>
+                              <DropShadow color="rgba(0, 0, 0, 0.4)" radius="10.0" />
+                           </effect>
                            <children>
-                              <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
+                              <ImageView fx:id="image" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
+                                 <image>
+                                    <Image url="@../../img/member/male_avatar.png" />
+                                 </image>
                                  <effect>
-                                    <DropShadow color="rgba(0, 0, 0, 0.4)" radius="10.0" />
+                                    <DropShadow color="rgba(0, 0, 0, 0.5)" radius="8.0" />
                                  </effect>
-                                 <children>
-                                    <ImageView fx:id="imageUrl" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" style="-fx-border-radius: 10;">
-                                       <image>
-                                          <Image url="@../../img/member/male_avatar.png" />
-                                       </image>
-                                       <effect>
-                                          <DropShadow color="rgba(0, 0, 0, 0.5)" radius="8.0" />
-                                       </effect>
-                                    </ImageView>
-                                    <Label fx:id="lblID" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="M0001" textFill="WHITE" />
-                                    <Label fx:id="lblName" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Ruwan Dilhara" textFill="WHITE" />
-                                    <Label fx:id="lblAddress" style="-fx-font-size: 14px;" text="Yakkalamula" textFill="WHITE" />
-                                    <Label fx:id="lblMemberDate" style="-fx-font-size: 14px;" text="Member Since: 2025-02-17" textFill="WHITE" />
-                                    <Label fx:id="lblContact" style="-fx-font-size: 14px;" text="0785135619" textFill="WHITE" />
-                                    <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="ruwandilhara81@gmail.com" textFill="WHITE" />
-                                    <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;">
-                                       <children>
-                                          <JFXButton onAction="#btnUpdateOnAction" style="-fx-background-color: #D72638; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Update">
-                                             <effect>
-                                                <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
-                                             </effect>
-                                          </JFXButton>
-                                          <JFXButton onAction="#bynDeleteOnAction" style="-fx-background-color: #1B98E0; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Delete">
-                                             <effect>
-                                                <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
-                                             </effect>
-                                          </JFXButton>
-                                       </children>
-                                    </HBox>
-                                 </children>
-                              </VBox>
-                           </children>
-                        </AnchorPane>
-                        <VBox alignment="CENTER" prefHeight="438.0" prefWidth="586.0" spacing="2.0">
-                           <children>
-                              <HBox alignment="CENTER" prefHeight="14.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="ID">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtID" alignment="CENTER" disable="true" prefHeight="38.0" prefWidth="218.0" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Name" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtTitle" alignment="TOP_LEFT" prefHeight="37.0" prefWidth="214.0" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Address">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtISBM" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Email">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtAuthor" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Contact">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtYear" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Membership date">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtYear2" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Status">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtYear1" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="18.0" prefWidth="115.0" text="Gender">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </Label>
-                                    <TextField fx:id="txtYear11" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
-                                       <font>
-                                          <Font name="System Bold" size="16.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="50.0" right="50.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <HBox alignment="CENTER" prefHeight="35.0" prefWidth="504.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Label prefHeight="42.0" prefWidth="142.0" text="File Choose">
-                                       <font>
-                                          <Font name="System Bold" size="20.0" />
-                                       </font>
-                                    </Label>
-                                    <JFXButton buttonType="RAISED" onAction="#btnSelectOnAction" prefHeight="26.0" prefWidth="124.0" style="-fx-background-color: green;" text="Select" textFill="WHITE">
-                                       <font>
-                                          <Font name="System Bold" size="17.0" />
-                                       </font>
-                                    </JFXButton>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </HBox>
+                              </ImageView>
+                              <Label fx:id="lblID" style="-fx-font-size: 16px; -fx-font-weight: bold;" text="M0001" textFill="WHITE" />
+                              <Label fx:id="lblName" style="-fx-font-size: 18px; -fx-font-weight: bold;" text="--" textFill="WHITE" />
+                              <Label fx:id="lblAddress" style="-fx-font-size: 14px;" text="--" textFill="WHITE" />
+                              <Label fx:id="lblMemberDate" style="-fx-font-size: 14px;" text="--" textFill="WHITE" />
+                              <Label fx:id="lblContact" style="-fx-font-size: 14px;" text="--" textFill="WHITE" />
+                              <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="--" textFill="WHITE" />
+                              <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;" />
                            </children>
                         </VBox>
-                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="504.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     </children>
+                  </AnchorPane>
+                  <VBox alignment="CENTER" prefHeight="455.0" prefWidth="642.0">
+                     <children>
+                        <HBox alignment="CENTER" prefHeight="14.0" prefWidth="146.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <JFXButton buttonType="RAISED" onAction="#btnAddOnAction" style="-fx-background-color: #640D5F;" text="Add" textFill="WHITE">
+                              <Label prefHeight="26.0" prefWidth="146.0" text="ID">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font name="System Bold" size="17.0" />
                                  </font>
-                              </JFXButton>
-                              <JFXButton buttonType="RAISED" onAction="#btnPreviewOnAction" style="-fx-background-color: #2D336B;" text="Preview" textFill="WHITE">
+                              </Label>
+                              <TextField fx:id="txtID" alignment="CENTER" disable="true" prefHeight="38.0" HBox.hgrow="ALWAYS">
                                  <font>
-                                    <Font name="System Bold" size="18.0" />
+                                    <Font name="System Bold" size="16.0" />
                                  </font>
-                              </JFXButton>
-                              <JFXButton buttonType="RAISED" onAction="#btnCancelOnAction" style="-fx-background-color: #F0A04B;" text="Cancel" textFill="WHITE">
-                                 <font>
-                                    <Font name="System Bold" size="18.0" />
-                                 </font>
-                              </JFXButton>
+                              </TextField>
                            </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="146.0" text="Name" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtName" alignment="TOP_LEFT" prefHeight="38.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="146.0" text="Address">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtAddress" alignment="TOP_LEFT" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="146.0" text="Email">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtEmail" alignment="TOP_LEFT" prefHeight="37.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="26.0" prefWidth="146.0" text="Contact">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="txtContact" alignment="TOP_LEFT" prefHeight="37.0" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="146.0" text="Gender">
+                                 <font>
+                                    <Font name="System Bold" size="17.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cmbGenderType" prefHeight="37.0" prefWidth="358.0" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <VBox.margin>
+                              <Insets left="50.0" right="50.0" />
+                           </VBox.margin>
                         </HBox>
                      </children>
-                  </GridPane>
-               </graphic>
-            </Label>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="53.0" prefWidth="504.0" spacing="20.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                     <children>
+                        <JFXButton buttonType="RAISED" onAction="#btnAddOnAction" style="-fx-background-color: #640D5F;" text="Add" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#btnPreviewOnAction" style="-fx-background-color: #2D336B;" text="Preview" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#btnClearOnAction" style="-fx-background-color: #F0A04B;" text="Clear" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+            </GridPane>
          </children>
       </VBox>
    </children>
