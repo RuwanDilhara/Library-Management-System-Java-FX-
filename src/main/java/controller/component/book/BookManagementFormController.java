@@ -95,7 +95,6 @@ public class BookManagementFormController implements Initializable {
 
     @FXML
     void btnAddBookOnAction() {
-//        loadNewWindow("/view/component/add_book_form.fxml", "Add Book Form");
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/component/add_book_form.fxml"));
         try {
             Parent root = loader.load();

@@ -80,6 +80,23 @@ public class MemberServiceImpl implements MemberService {
         return getAll().stream().filter(member -> member.getId()
                 .equals(id)).findFirst().orElse(null);
     }
+    public List<Member> searchByName(String memberName){
+        if (memberName == null || memberName.trim().isEmpty()) {
+            return Collections.emptyList();
+        }
+
+        String userInputName = memberName.toLowerCase();
+        LevenshteinDistance levenshteinDistance = new LevenshteinDistance();
+
+        return getAll().stream().filter(member -> {
+            if (member.getName()==null)return false;
+            String name =  member.getName().toLowerCase();
+
+            int distance = levenshteinDistance.apply(userInputName,name);
+            return name.contains(userInputName) || distance <= 2;
+        }).toList();
+
+    }
 
     @Override
     public List<String> getAllMember() {

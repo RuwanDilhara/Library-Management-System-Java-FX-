@@ -6,15 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 import service.custome.MemberService;
 import service.custome.impl.MemberServiceImpl;
-import util.enums.BookStatus;
-import util.enums.MemberGenderType;
 import util.enums.MemberStatus;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +20,6 @@ import javafx.scene.layout.GridPane;
 
 import java.io.IOException;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.*;
 
 public class MemberManagementFormController implements Initializable {
@@ -58,7 +52,7 @@ public class MemberManagementFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loadMember(null);
         comboBoxLoader();
-        System.out.println(memberList);
+        searchSuggester();
     }
 
     public void loadMember(String filterByMember) {
@@ -178,4 +172,11 @@ public class MemberManagementFormController implements Initializable {
         return checkPassive.isSelected() ? MemberStatus.INACTIVE : MemberStatus.ACTIVE;
     }
 
+    private void searchSuggester(){
+        txtSearch.textProperty().addListener((observableValue, string, newValue) -> {
+            memberList = service.getMembersByName(newValue);
+            loadMember(null );
+
+        });
+    }
 }

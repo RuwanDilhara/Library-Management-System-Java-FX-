@@ -79,7 +79,7 @@ public class BookServiceImpl implements BookService {
                     String bookTitle = Optional.ofNullable(book.getTitle()).orElse("").toLowerCase();
                     return bookTitle.contains(userInputTitle) || levenshtein.apply(userInputTitle, bookTitle) <= 2;
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
     @Override
