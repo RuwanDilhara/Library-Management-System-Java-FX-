@@ -77,6 +77,12 @@ public class AddMemberFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         generateId();
         comboBoxLoader();
+        isImageUrl();
+    }
+    private void isImageUrl(){
+        imagePath = cmbGenderType.getValue()
+                .equals(MemberGenderType.MALE.toString())?"img/member/male_avatar.png"
+                :"img/member/female_avatar.png";
     }
     private void comboBoxLoader(){
         ObservableList<String> genderTypeObservableList = FXCollections.observableArrayList();
@@ -165,4 +171,6 @@ public class AddMemberFormController implements Initializable {
         lblID.setText(newID);
         txtID.setText(newID);
     }
+
+
 }

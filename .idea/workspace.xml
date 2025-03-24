@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="Completed the Report Generate Part">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/UpdateMemberFormController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/view/component/member_update_form.fxml" afterDir="false" />
+    <list default="true" id="5c43a7b8-9240-4f4b-97be-93bbbe8ac709" name="Changes" comment="add the Update Member part">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/AddMemberFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/AddMemberFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberCardFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/MemberCardFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/add_member_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/add_member_form.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/component/member/UpdateMemberFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/component/member/UpdateMemberFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/member_card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/member_card.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/component/member_update_form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/component/member_update_form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742397262324</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add the Update Member part">
+      <option name="closed" value="true" />
+      <created>1742721758046</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1742721758046</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,7 +273,8 @@
     <MESSAGE value="fixed bug" />
     <MESSAGE value="Complete the Report Generate Part" />
     <MESSAGE value="Completed the Report Generate Part" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the Report Generate Part" />
+    <MESSAGE value="add the Update Member part" />
+    <option name="LAST_COMMIT_MESSAGE" value="add the Update Member part" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

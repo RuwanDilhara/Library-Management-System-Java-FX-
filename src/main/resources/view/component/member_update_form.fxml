@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -17,7 +18,7 @@
    <children>
       <VBox alignment="TOP_CENTER" layoutY="3.2" prefHeight="764.0" prefWidth="515.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label alignment="CENTER" contentDisplay="TOP" prefHeight="0.0" prefWidth="504.0" text="Update Book" VBox.vgrow="ALWAYS">
+            <Label alignment="CENTER" contentDisplay="TOP" prefHeight="0.0" prefWidth="504.0" text="Update Member" VBox.vgrow="ALWAYS">
                <font>
                   <Font name="System Bold" size="28.0" />
                </font>
@@ -25,9 +26,9 @@
                   <Insets bottom="2.0" left="20.0" right="2.0" top="2.0" />
                </padding>
             </Label>
-            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="362.0" prefWidth="280.0">
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="313.0" prefWidth="280.0">
                <children>
-                  <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#btnOnActionSelectMember" prefHeight="350.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
+                  <VBox alignment="TOP_CENTER" layoutX="5.0" layoutY="5.0" onMouseClicked="#btnOnActionSelectMember" prefHeight="299.0" prefWidth="270.0" style="-fx-background-color: linear-gradient(to bottom, #5C5470, #443C68); -fx-background-radius: 15; -fx-padding: 15;">
                      <effect>
                         <DropShadow color="rgba(0, 0, 0, 0.4)" radius="10.0" />
                      </effect>
@@ -47,20 +48,6 @@
                         <Label fx:id="lblContact" style="-fx-font-size: 14px;" text="0785135619" textFill="WHITE" />
                         <Label fx:id="lblEmail" style="-fx-font-size: 14px;" text="ruwandilhara81@gmail.com" textFill="WHITE" />
                         <Label fx:id="lblGender" style="-fx-font-size: 14px;" text="MALE" textFill="WHITE" />
-                        <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 0 0 0;">
-                           <children>
-                              <JFXButton onAction="#btnUpdateOnAction" style="-fx-background-color: #D72638; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Update">
-                                 <effect>
-                                    <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
-                                 </effect>
-                              </JFXButton>
-                              <JFXButton onAction="#bynDeleteOnAction" style="-fx-background-color: #1B98E0; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-radius: 20;" text="Delete">
-                                 <effect>
-                                    <DropShadow color="rgba(0, 0, 0, 0.3)" radius="5.0" />
-                                 </effect>
-                              </JFXButton>
-                           </children>
-                        </HBox>
                      </children>
                   </VBox>
                </children>
@@ -159,6 +146,19 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="0.0" prefWidth="403.0">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="190.0" text="Gender">
+                     <font>
+                        <Font name="System Bold" size="23.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cmbGenderType" prefHeight="37.0" prefWidth="358.0" HBox.hgrow="ALWAYS" />
                </children>
                <VBox.margin>
                   <Insets left="50.0" right="50.0" />
